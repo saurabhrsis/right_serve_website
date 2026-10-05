@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a2540" />
+    <link rel="icon" type="image/png" href="/assets/brand/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--
+      Marks that scripting is available before first paint. Scroll-reveal
+      animations only hide content when this class is present, so a visitor
+      (or crawler) without JavaScript still sees the full page.
+    -->
+    <script>document.documentElement.classList.add('has-js');</script>
+    <!--app-head-->
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <!--
+      No-JS fallback. Kept to a plain summary without headings so it never
+      duplicates a page's own H1, and left in place for the client-only shell
+      (200.html) as well as the prerendered pages.
+    -->
+    <noscript>
+      <div style="max-width: 720px; margin: 3rem auto; padding: 0 1.25rem; font-family: system-ui, sans-serif">
+        <p><strong>Right Serve Infotech System Pvt. Ltd.</strong></p>
+        <p>
+          We build custom software, web and mobile applications, ERP systems and industry software such as FMCG
+          billing, jewellery billing and tuition ERP. Office: 10, Saurabh Nagar-2, Besa Road, Ghogali, Nagpur,
+          Maharashtra 440034, India.
+        </p>
+        <p>
+          Reach us on <a href="tel:+919545073418">+91 95450 73418</a> or email
+          <a href="mailto:rightserveinfotechSystem@gmail.com">rightserveinfotechSystem@gmail.com</a>.
+        </p>
+        <p>
+          Pages:
+          <a href="/about">About</a> ·
+          <a href="/services">Services</a> ·
+          <a href="/solutions">Software solutions</a> ·
+          <a href="/portfolio">Portfolio</a> ·
+          <a href="/case-studies">Case studies</a> ·
+          <a href="/blog">Blog</a> ·
+          <a href="/careers">Careers</a> ·
+          <a href="/contact">Contact</a> ·
+          <a href="/request-quote">Request a quote</a> ·
+          <a href="/sitemap.xml">Sitemap</a>
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

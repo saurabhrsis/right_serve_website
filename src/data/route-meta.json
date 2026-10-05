@@ -1,0 +1,518 @@
+{
+  "siteUrl": "https://rightserveinfotechsystem.com",
+  "defaultTitle": "Custom Software & ERP Development Company in Nagpur | RSIS",
+  "defaultDescription": "Right Serve Infotech System builds custom software, web and mobile applications, ERP systems and industry billing software for businesses in Nagpur, Maharashtra and across India.",
+  "defaultOgImage": "/assets/brand/og-cover.jpg",
+  "routes": [
+    {
+      "path": "/",
+      "label": "Home",
+      "title": "Custom Software & ERP Development Company in Nagpur | RSIS",
+      "description": "Right Serve Infotech System builds custom software, web and mobile apps, ERP systems and industry billing software for businesses across Nagpur, Maharashtra and India.",
+      "keywords": [
+        "software development company in Nagpur",
+        "custom software development",
+        "ERP software development Nagpur",
+        "business software India"
+      ],
+      "changefreq": "monthly",
+      "priority": "1.0",
+      "type": "website",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "ProfessionalService"
+      ]
+    },
+    {
+      "path": "/about",
+      "label": "About",
+      "title": "About Right Serve Infotech System | Software Company in Nagpur",
+      "description": "Right Serve Infotech System Pvt. Ltd. is a Nagpur-based software and technology company building custom software, web applications, mobile apps and ERP systems for businesses since 2019.",
+      "keywords": [
+        "Right Serve Infotech System",
+        "IT company in Nagpur",
+        "software company Nagpur",
+        "RSIS Nagpur"
+      ],
+      "changefreq": "yearly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "AboutPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services",
+      "label": "Services",
+      "title": "Software Development Services | Right Serve Infotech System",
+      "description": "Custom software development, ERP development, website and mobile app development, AI solutions and SEO services delivered by the Right Serve Infotech System team in Nagpur.",
+      "keywords": [
+        "software development services",
+        "ERP development services",
+        "web and mobile app development"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services/software-development",
+      "label": "Custom Software Development",
+      "title": "Custom Software Development Company in Nagpur | RSIS",
+      "description": "We build custom software around your actual business workflow — requirement analysis, architecture, UI/UX, development, integration, deployment and ongoing support.",
+      "keywords": [
+        "custom software development Nagpur",
+        "bespoke software development India",
+        "business process software"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services/website-development",
+      "label": "Website Development",
+      "title": "Website Development Company in Nagpur | Business & Web Apps",
+      "description": "Business websites, corporate websites and web applications built with modern, SEO-friendly, responsive front-end development and reliable CMS or API integrations.",
+      "keywords": [
+        "website development company in Nagpur",
+        "corporate website design",
+        "web application development"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services/mobile-app-development",
+      "label": "Mobile App Development",
+      "title": "Mobile App Development Company in Nagpur | Android & iOS",
+      "description": "Android, iOS and cross-platform mobile applications for business and product needs, including API integration, user authentication and app store release support.",
+      "keywords": [
+        "mobile app development company in Nagpur",
+        "Android app development",
+        "cross-platform app development"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services/erp-development",
+      "label": "ERP Development",
+      "title": "ERP Software Development Company in Nagpur | Custom ERP",
+      "description": "Custom ERP development around your business workflows — multiple modules, user roles and permissions, reporting, automation and integration with the systems you already use.",
+      "keywords": [
+        "ERP software development in Nagpur",
+        "custom ERP development",
+        "erp software for business"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services/ai-development",
+      "label": "AI Development",
+      "title": "AI Development Services | AI Apps & Automation | RSIS",
+      "description": "AI-powered application development, intelligent automation, machine learning models and AI API integrations built into practical business software rather than isolated prototypes.",
+      "keywords": [
+        "AI development services India",
+        "machine learning development",
+        "AI automation for business"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services/seo-digital-marketing",
+      "label": "SEO & Digital Marketing",
+      "title": "SEO & Digital Marketing Services in Nagpur | RSIS",
+      "description": "Technical and on-page SEO, local SEO and Google Business Profile optimisation, content planning, performance tracking and digital campaigns for businesses in Nagpur and India.",
+      "keywords": [
+        "SEO services in Nagpur",
+        "digital marketing agency Nagpur",
+        "local SEO India"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "Service",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/services/hardware-it-infrastructure",
+      "label": "Hardware & IT Infrastructure",
+      "title": "IT Hardware, Networking & Server Solutions in Nagpur | RSIS",
+      "description": "Server, workstation, network, storage and security hardware supply, installation and maintenance for offices and growing businesses in Nagpur and across Maharashtra.",
+      "keywords": [
+        "computer hardware dealers Nagpur",
+        "server and networking solutions",
+        "IT hardware maintenance Nagpur"
+      ],
+      "changefreq": "yearly",
+      "priority": "0.6",
+      "type": "website",
+      "schema": [
+        "Service",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions",
+      "label": "Solutions",
+      "title": "Business Software Solutions | Billing, ERP & Management Systems",
+      "description": "Ready-to-deploy business software — FMCG billing, jewellery billing, tuition and institute ERP, cooperative society software, construction ERP and customisable management systems.",
+      "keywords": [
+        "business software solutions India",
+        "billing software for distributors",
+        "industry specific software"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions/fmcg-billing",
+      "label": "FMCG Billing Software",
+      "title": "FMCG Billing & Distribution Software | Desktop, Web & Mobile",
+      "description": "FMCG billing, distribution and business management software for distributors, wholesalers and FMCG businesses — available on desktop, web and mobile.",
+      "keywords": [
+        "FMCG billing software",
+        "distribution billing software India",
+        "billing software for wholesalers"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions/jewellery-billing",
+      "label": "Jewellery Billing Software",
+      "title": "Jewellery Billing Software | Desktop, Web & Mobile | RSIS",
+      "description": "Industry-specific jewellery business billing and management software for jewellers and showrooms, available on desktop, web and mobile with demo and deployment support.",
+      "keywords": [
+        "jewellery billing software",
+        "jewellery shop management software India",
+        "gold jewellery billing software"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions/tuition-erp",
+      "label": "Tuition ERP",
+      "title": "Tuition & Coaching Class ERP Software | Desktop, Web, Mobile",
+      "description": "Education and coaching institute management software for tuition classes, coaching centres and schools — student, teacher, exam and result management on desktop, web and mobile.",
+      "keywords": [
+        "tuition class management software",
+        "coaching institute ERP",
+        "school ERP software India"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions/cooperative-society-software",
+      "label": "Cooperative Society Software",
+      "title": "Cooperative Society Management Software | RSIS",
+      "description": "Business and financial management software for cooperative societies, built around society operations and record management with implementation support from our Nagpur team.",
+      "keywords": [
+        "cooperative society software",
+        "society management software India",
+        "credit society software"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions/business-management",
+      "label": "Business Management Software",
+      "title": "Business Management Software for SMEs | Customisable | RSIS",
+      "description": "Customisable business management software for SMEs and growing organisations — adapted to the way your team already works, with implementation and support.",
+      "keywords": [
+        "business management software",
+        "SME software India",
+        "customisable business software"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions/construction-erp",
+      "label": "Construction ERP",
+      "title": "Construction ERP & Project Billing Software | RSIS",
+      "description": "Construction business management and project billing software for contractors and builders — project-based billing, payment tracking and document generation workflows.",
+      "keywords": [
+        "construction ERP software",
+        "construction billing software India",
+        "contractor billing software"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/solutions/dosecare",
+      "label": "DoseCare",
+      "title": "DoseCare | Patient Care & Medication Management Software",
+      "description": "DoseCare is a healthcare management product for patient care, medication tracking and health monitoring, with an app for patients and a management dashboard for care teams.",
+      "keywords": [
+        "patient care software",
+        "medication reminder app",
+        "healthcare management software India"
+      ],
+      "changefreq": "yearly",
+      "priority": "0.6",
+      "type": "website",
+      "schema": [
+        "Product",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/portfolio",
+      "label": "Portfolio",
+      "title": "Portfolio | Software, Web & Mobile Projects | RSIS",
+      "description": "Selected software, web, mobile and business application projects delivered by Right Serve Infotech System for clients across construction, retail, education and services.",
+      "keywords": [
+        "software development portfolio",
+        "web development projects Nagpur",
+        "mobile app projects India"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/case-studies",
+      "label": "Case Studies",
+      "title": "Case Studies | Software Projects by Right Serve Infotech System",
+      "description": "Detailed case studies of software we designed and delivered — the business problem, the solution we built, the technology used and the outcome for the client.",
+      "keywords": [
+        "software development case studies",
+        "custom software project India",
+        "ERP implementation case study"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "type": "website",
+      "schema": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/blog",
+      "label": "Blog",
+      "title": "Blog | Software, ERP & Business Technology Insights | RSIS",
+      "description": "Practical articles on business software, ERP, billing systems, custom development, AI and digital growth — written by the Right Serve Infotech System team.",
+      "keywords": [
+        "business software blog",
+        "ERP and billing software guides",
+        "software development insights India"
+      ],
+      "changefreq": "weekly",
+      "priority": "0.7",
+      "type": "website",
+      "schema": [
+        "Blog",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/thank-you",
+      "label": "Thank you",
+      "title": "Thank you — your enquiry has reached us | Right Serve Infotech System",
+      "description": "Your enquiry has been received by the Right Serve Infotech System team in Nagpur. Here is what happens next.",
+      "robots": "noindex, follow",
+      "changefreq": "yearly",
+      "priority": "0.1",
+      "type": "website",
+      "schema": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/careers",
+      "label": "Careers",
+      "title": "Careers | Software Jobs in Nagpur | Right Serve Infotech System",
+      "description": "Open roles at Right Serve Infotech System in Nagpur for full stack, frontend, backend, mobile, UI/UX, graphic design, QA and sales professionals.",
+      "keywords": [
+        "software jobs in Nagpur",
+        "developer jobs Nagpur",
+        "IT company careers Maharashtra"
+      ],
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "type": "website",
+      "schema": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/contact",
+      "label": "Contact",
+      "title": "Contact Right Serve Infotech System | Nagpur, Maharashtra",
+      "description": "Talk to our team in Nagpur about software development, ERP, billing software or app projects. Phone, email, office address, working hours and enquiry form.",
+      "keywords": [
+        "contact software company Nagpur",
+        "IT company contact Nagpur",
+        "software development enquiry"
+      ],
+      "changefreq": "yearly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "ContactPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/request-quote",
+      "label": "Request a Quote",
+      "title": "Request a Quote | Software Development Enquiry | RSIS",
+      "description": "Share your requirement, expected timeline and budget range. Our Nagpur team reviews every enquiry and responds with a practical proposal and next steps.",
+      "keywords": [
+        "software development quote",
+        "request software proposal India",
+        "get software development estimate"
+      ],
+      "changefreq": "yearly",
+      "priority": "0.9",
+      "type": "website",
+      "schema": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/privacy-policy",
+      "label": "Privacy Policy",
+      "title": "Privacy Policy | Right Serve Infotech System Pvt. Ltd.",
+      "description": "How Right Serve Infotech System Pvt. Ltd. collects, uses, stores and protects personal information submitted through this website and our business communications.",
+      "changefreq": "yearly",
+      "priority": "0.3",
+      "type": "website",
+      "schema": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/terms-and-conditions",
+      "label": "Terms & Conditions",
+      "title": "Terms & Conditions | Right Serve Infotech System Pvt. Ltd.",
+      "description": "The terms and conditions that apply to the use of the Right Serve Infotech System website, its content and the enquiries submitted through it.",
+      "changefreq": "yearly",
+      "priority": "0.3",
+      "type": "website",
+      "schema": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/privacy-policy-bhajnarthi-app",
+      "label": "Privacy Policy — Hindu Bhakti App",
+      "title": "Privacy Policy | Hindu Bhakti App by Right Serve Infotech System",
+      "description": "Privacy policy for the Hindu Bhakti mobile application published by Right Serve Infotech System Pvt. Ltd., covering the data the app does and does not collect.",
+      "changefreq": "yearly",
+      "priority": "0.2",
+      "type": "website",
+      "schema": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "/terms-and-conditions-bhajnarthi-app",
+      "label": "Terms & Conditions — Hindu Bhakti App",
+      "title": "Terms & Conditions | Hindu Bhakti App by Right Serve Infotech System",
+      "description": "Terms and conditions governing the use of the Hindu Bhakti mobile application published by Right Serve Infotech System Pvt. Ltd.",
+      "changefreq": "yearly",
+      "priority": "0.2",
+      "type": "website",
+      "schema": [
+        "BreadcrumbList"
+      ]
+    }
+  ],
+  "excludedFromSitemap": [
+    "/404",
+    "/thank-you"
+  ]
+}
