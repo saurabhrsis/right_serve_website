@@ -45,7 +45,15 @@ export default function Reveal({ children, delay = 0, className, as: Tag = 'div'
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // Safety net: if the observer never reports (hidden tab, unusual browser),
+    // show the content anyway rather than leaving it invisible.
+    const fallback = window.setTimeout(() => setVisible(true), 1500);
+
+    return () => {
+      window.clearTimeout(fallback);
+      observer.disconnect();
+    };
   }, []);
 
   return (

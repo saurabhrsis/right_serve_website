@@ -8,6 +8,12 @@
     <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" sizes="180x180" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="format-detection" content="telephone=no" />
+    <!--
+      Marks that scripting is available before first paint. Scroll-reveal
+      animations only hide content when this class is present, so a visitor
+      (or crawler) without JavaScript still sees the full page.
+    -->
+    <script>document.documentElement.classList.add('has-js');</script>
     <!--app-head-->
   </head>
   <body>
@@ -27,8 +33,20 @@
         </p>
         <p>
           Reach us on <a href="tel:+919545073418">+91 95450 73418</a> or email
-          <a href="mailto:rightserveinfotechSystem@gmail.com">rightserveinfotechSystem@gmail.com</a>. You can also
-          start from the <a href="/sitemap.xml">sitemap</a>.
+          <a href="mailto:rightserveinfotechSystem@gmail.com">rightserveinfotechSystem@gmail.com</a>.
+        </p>
+        <p>
+          Pages:
+          <a href="/about">About</a> ·
+          <a href="/services">Services</a> ·
+          <a href="/solutions">Software solutions</a> ·
+          <a href="/portfolio">Portfolio</a> ·
+          <a href="/case-studies">Case studies</a> ·
+          <a href="/blog">Blog</a> ·
+          <a href="/careers">Careers</a> ·
+          <a href="/contact">Contact</a> ·
+          <a href="/request-quote">Request a quote</a> ·
+          <a href="/sitemap.xml">Sitemap</a>
         </p>
       </div>
     </noscript>
