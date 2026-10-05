@@ -1,0 +1,6 @@
+# robots.txt - Right Serve Infotech System Pvt. Ltd.
+User-agent: *
+Allow: /
+Disallow: /thank-you
+
+Sitemap: https://rightserveinfotechsystem.com/sitemap.xml
