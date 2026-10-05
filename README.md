@@ -94,7 +94,7 @@ public/
 
 | URL | Page | In sitemap |
 | --- | --- | --- |
-| `/` | Home — hero, trust strip, products, services, industries, portfolio, case studies, tech, why us, process, FAQ, CTA | yes |
+| `/` | Home — hero with client logos, what we do, six ready products, custom development, delivered work, process, FAQ, CTA. Industries, technology and “why us” live on `/about` and `/services` so the homepage stays a sales page | yes |
 | `/about` | Company, values, team, how we work | yes |
 | `/services` | Services index (6 groups) | yes |
 | `/services/:slug` | `software-development`, `website-development`, `mobile-app-development`, `erp-development`, `ai-development`, `seo-digital-marketing`, `hardware-it-infrastructure` | yes |
