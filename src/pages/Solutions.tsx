@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading, { BulletList } from '../components/common/SectionHeading';
 import Reveal from '../components/common/Reveal';
@@ -10,7 +9,6 @@ import { FaqSection } from '../components/common/Faq';
 import { SolutionCard } from '../components/common/Cards';
 import { productFaqs, solutions } from '../data/solutions';
 import { breadcrumbSchema, itemListSchema, productSchema } from '../seo/schema';
-
 
 export default function Solutions() {
   return (
@@ -43,9 +41,8 @@ export default function Solutions() {
           { icon: 'Layers', text: 'Billing, education, society, construction and management systems' },
           { icon: 'Server', text: 'Cloud or on-premise deployment' },
         ]}
+        breadcrumbs={[{ label: 'Solutions' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Solutions' }]} />
 
       <section className="section">
         <div className="container">

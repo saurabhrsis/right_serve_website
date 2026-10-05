@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import SmartImage from '../components/common/SmartImage';
@@ -52,10 +51,7 @@ export default function CaseStudyDetail() {
         ]}
         primaryCta={{ label: 'Discuss your requirement', to: '/request-quote' }}
         secondaryCta={{ label: 'View portfolio', to: '/portfolio' }}
-      />
-
-      <Breadcrumbs
-        items={[{ label: 'Case Studies', path: '/case-studies' }, { label: study.industry }]}
+        breadcrumbs={[{ label: 'Case Studies', path: '/case-studies' }, { label: study.industry }]}
       />
 
       <section className="section">

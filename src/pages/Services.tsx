@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import Reveal from '../components/common/Reveal';
@@ -39,9 +38,8 @@ export default function Services() {
           { icon: 'Users', text: 'Clients across India' },
           { icon: 'Clock', text: 'Response within one working day' },
         ]}
+        breadcrumbs={[{ label: 'Services' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Services' }]} />
 
       <section className="section">
         <div className="container">

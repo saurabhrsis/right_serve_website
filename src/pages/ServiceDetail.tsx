@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading, { BulletList, FeatureRows } from '../components/common/SectionHeading';
 import Reveal from '../components/common/Reveal';
@@ -52,13 +51,10 @@ export default function ServiceDetail() {
           { icon: 'MapPin', text: 'Nagpur, Maharashtra · projects across India' },
           { icon: 'FileText', text: 'Written scope and estimate' },
         ]}
-        media={service.image ? { src: service.image.src, alt: service.image.alt } : undefined}
+        media={service.image ? { src: service.image.src, alt: service.image.alt, label: service.navTitle } : undefined}
         primaryCta={{ label: service.cta.primaryLabel, to: '/request-quote' }}
         secondaryCta={{ label: 'Talk to our team', to: '/contact' }}
-      />
-
-      <Breadcrumbs
-        items={[{ label: 'Services', path: '/services' }, { label: service.navTitle }]}
+        breadcrumbs={[{ label: 'Services', path: '/services' }, { label: service.navTitle }]}
       />
 
       {/* Overview + who it is for */}

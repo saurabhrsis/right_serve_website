@@ -1,5 +1,4 @@
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import CtaBand from '../components/common/CtaBand';
 import type { LegalDocument } from '../data/legal';
@@ -26,12 +25,13 @@ export default function LegalPage({ document }: { document: LegalDocument }) {
       />
 
       <PageHero
+        variant="light"
+        compact
         eyebrow="Legal"
         title={document.title}
         lead={`Last updated: ${formatDate(document.updated)}`}
+        breadcrumbs={[{ label: document.breadcrumb }]}
       />
-
-      <Breadcrumbs items={[{ label: document.breadcrumb }]} />
 
       <section className="section">
         <div className="container">

@@ -1,19 +1,13 @@
 import Seo from '../seo/Seo';
 import HomeHero from '../components/home/HomeHero';
 import {
-  CaseStudiesPreview,
   CustomDevelopment,
-  InsightsPreview,
-  PortfolioPreview,
+  ProofPreview,
   SolutionsShowcase,
   WhatWeDo,
 } from '../components/home/HomeSections';
 import TrustStrip from '../components/sections/TrustStrip';
-import Industries from '../components/sections/Industries';
-import Technology from '../components/sections/Technology';
-import WhyUs from '../components/sections/WhyUs';
 import Process from '../components/sections/Process';
-import ClientStrip from '../components/sections/ClientStrip';
 import { FaqSection } from '../components/common/Faq';
 import CtaBand from '../components/common/CtaBand';
 import { generalFaqs } from '../data/company';
@@ -25,12 +19,27 @@ import {
   webSiteSchema,
 } from '../seo/schema';
 
+/**
+ * Homepage.
+ *
+ * Deliberately short and sales-focused: hero → credibility → what we do →
+ * products → custom development → delivered work → process → FAQ → CTA.
+ * Deep material (industries, technology, why us, articles) lives on the pages
+ * that can present it properly.
+ */
 export default function Home() {
+  const homeFaqs = generalFaqs.slice(0, 5);
+
   return (
     <>
       <Seo
         path="/"
-        schema={[organisationSchema(), webSiteSchema(), professionalServiceSchema(), faqSchema(generalFaqs.slice(0, 6))]}
+        schema={[
+          organisationSchema(),
+          webSiteSchema(),
+          professionalServiceSchema(),
+          faqSchema(homeFaqs),
+        ]}
       />
 
       <HomeHero />
@@ -38,20 +47,20 @@ export default function Home() {
       <WhatWeDo />
       <SolutionsShowcase />
       <CustomDevelopment />
-      <Industries
-        limit={8}
-        lead="Our projects and products cover these sectors. If your industry is not listed, the conversation still starts with your workflow rather than a template."
+      <ProofPreview />
+
+      <Process
+        limit={4}
+        variant="navy"
+        id="process-summary"
+        eyebrow="How we work"
+        title="A process that keeps scope and timelines visible"
+        lead="Four stages, each ending in something you review and approve. The full seven-stage process is documented on the services page."
+        cta={{ label: 'See the full process', to: '/services' }}
       />
-      <PortfolioPreview />
-      <CaseStudiesPreview />
-      <Technology />
-      <WhyUs limit={4} />
-      <Process />
-      <ClientStrip />
-      <InsightsPreview />
 
       <FaqSection
-        items={generalFaqs}
+        items={homeFaqs}
         title="Questions we are asked before a project starts"
         lead="If your question is not answered here, call us or send it through the enquiry form — you will get a direct answer."
       />

@@ -1,5 +1,4 @@
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading, { BulletList } from '../components/common/SectionHeading';
 import EnquiryForm from '../components/forms/EnquiryForm';
@@ -29,7 +28,6 @@ const steps = [
   },
 ];
 
-
 export default function RequestQuote() {
   return (
     <>
@@ -50,9 +48,8 @@ export default function RequestQuote() {
           { icon: 'Phone', text: site.phones[0].display },
           { icon: 'Mail', text: site.email },
         ]}
+        breadcrumbs={[{ label: 'Request a Quote' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Request a Quote' }]} />
 
       <section className="section">
         <div className="container">

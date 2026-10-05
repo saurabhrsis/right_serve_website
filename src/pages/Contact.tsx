@@ -1,5 +1,4 @@
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import EnquiryForm from '../components/forms/EnquiryForm';
@@ -87,9 +86,8 @@ export default function Contact() {
           { icon: 'Mail', text: site.email },
           { icon: 'MapPin', text: `${site.address.city}, ${site.address.region}` },
         ]}
+        breadcrumbs={[{ label: 'Contact' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Contact' }]} />
 
       <section className="section">
         <div className="container">

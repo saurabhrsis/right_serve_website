@@ -14,7 +14,7 @@ import { defaultWhatsAppMessage, site, whatsappLink } from '../data/site';
 
 const nextSteps = [
   {
-    icon: 'ClipboardList',
+    icon: 'FileText',
     title: 'We read your requirement',
     text: 'Your enquiry reaches our team with everything you submitted — the problem, the modules or the product you asked about.',
   },

@@ -2,105 +2,115 @@ import { Link } from 'react-router-dom';
 import Icon from '../common/Icon';
 import Reveal from '../common/Reveal';
 import SectionHeading, { BulletList } from '../common/SectionHeading';
-import { SolutionCard, ProjectCard, ArticleCard } from '../common/Cards';
+import { SolutionCard } from '../common/Cards';
 import SmartImage from '../common/SmartImage';
 import { featuredSolutions } from '../../data/solutions';
-import { projects } from '../../data/portfolio';
 import { caseStudies } from '../../data/caseStudies';
-import { sortedArticles } from '../../data/blog';
-import { services } from '../../data/services';
 
-/** Service overview: what clients can commission us to build. */
+/**
+ * Homepage sections.
+ *
+ * The homepage is deliberately short: hero → credibility → what we do →
+ * products → custom development → delivered work → process → FAQ → CTA.
+ * Detailed material (industries, technology, why us, services list, articles)
+ * lives on the pages that can do it justice.
+ */
+
+/* ------------------------------------------------------------- What we do */
+
+const pillars = [
+  {
+    icon: 'Code2',
+    title: 'Custom software development',
+    text: 'Web, desktop and mobile systems built around the way your business already works — with written scope, staged delivery and support after go-live.',
+    path: '/services',
+    linkLabel: 'Explore services',
+    tags: ['Web apps', 'Mobile apps', 'ERP', 'Integrations'],
+  },
+  {
+    icon: 'LayoutDashboard',
+    title: 'Ready business software',
+    text: 'Billing, ERP and management products that are already built and running. We configure them to your masters, documents and reporting instead of starting from zero.',
+    path: '/solutions',
+    linkLabel: 'See the products',
+    tags: ['FMCG billing', 'Jewellery', 'Tuition ERP', 'Society'],
+  },
+  {
+    icon: 'TrendingUp',
+    title: 'Digital growth and IT',
+    text: 'SEO, campaigns, analytics and the hardware or cloud infrastructure your software runs on — handled by the same team that builds the systems.',
+    path: '/services/seo-digital-marketing',
+    linkLabel: 'Growth services',
+    tags: ['Local SEO', 'Campaigns', 'Cloud', 'Infrastructure'],
+  },
+];
+
 export function WhatWeDo() {
-  const highlights = services.filter((service) =>
-    ['software-development', 'erp-development', 'mobile-app-development', 'website-development'].includes(service.slug),
-  );
-  const extra = [
-    { title: 'AI development', text: 'Automation, document processing and AI features inside your software.', path: '/services/ai-development', icon: 'Brain' },
-    { title: 'SEO & digital marketing', text: 'Search visibility, local SEO and campaigns measured against enquiries.', path: '/services/seo-digital-marketing', icon: 'Search' },
-  ];
-
   return (
     <section className="section" id="what-we-do">
       <div className="container">
         <SectionHeading
           eyebrow="What we do"
-          title="Software development services for businesses that need it built properly"
-          lead="Four core service lines cover most client requirements. Every engagement starts with your workflow, then moves to architecture, design, development and support."
+          title="One team for the software you need and the software you can buy"
+          lead="Most businesses need both: an off-the-shelf product where the process is standard, and custom development where it is not. We do both, so you are not pushed towards the option that suits a vendor."
         />
 
-        <div className="grid grid--2">
-          {highlights.map((service, index) => (
-            <Reveal key={service.slug} delay={(index % 2) * 60}>
-              <article className="capability" style={{ height: '100%' }}>
-                <span className="capability__icon" aria-hidden="true">
-                  <Icon name={service.icon} size={22} />
+        <div className="grid grid--3 mt-7">
+          {pillars.map((pillar, index) => (
+            <Reveal key={pillar.title} delay={index * 70}>
+              <article className="pillar-card">
+                <span className="pillar-card__icon" aria-hidden="true">
+                  <Icon name={pillar.icon} size={24} />
                 </span>
-                <h3>
-                  <Link to={service.path}>{service.navTitle}</Link>
-                </h3>
-                <p>{service.summary}</p>
-                <Link className="link-arrow" to={service.path}>
-                  Service details
-                  <Icon name="ChevronRight" size={15} />
+                <h3>{pillar.title}</h3>
+                <p>{pillar.text}</p>
+                <div className="badge-row">
+                  {pillar.tags.map((tag) => (
+                    <span className="badge" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link className="link-arrow pillar-card__link" to={pillar.path}>
+                  {pillar.linkLabel}
+                  <Icon name="ArrowRight" size={16} />
                 </Link>
               </article>
             </Reveal>
           ))}
-        </div>
-
-        <div className="grid grid--2 mt-5">
-          {extra.map((item) => (
-            <article className="card card--soft" key={item.path}>
-              <span className="card__icon" aria-hidden="true">
-                <Icon name={item.icon} size={22} />
-              </span>
-              <h3 className="card__title">
-                <Link to={item.path}>{item.title}</Link>
-              </h3>
-              <p className="card__text">{item.text}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="btn-row mt-6">
-          <Link className="btn btn--navy" to="/services">
-            All services
-            <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
-          </Link>
-          <Link className="btn btn--ghost" to="/request-quote">
-            Discuss your requirement
-          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-/** Product showcase — the most important commercial section on the homepage. */
+/* --------------------------------------------------------------- Products */
+
 export function SolutionsShowcase() {
   return (
     <section className="section section--soft" id="solutions">
       <div className="container">
         <SectionHeading
           eyebrow="Our software solutions"
-          title="Software you can deploy now, without a development project"
-          lead="These solutions are already built and running. Implementation is configured around your masters, documents and reporting, so you start from working software instead of a blank page."
+          title="Products you can deploy now, without a development project"
+          lead="Billing, ERP and management software for specific industries. Implementation is configured around your masters, documents and reports, so you start from working software."
         />
-        <div className="grid grid--3">
+
+        <div className="grid grid--3 mt-7">
           {featuredSolutions.map((solution, index) => (
             <Reveal key={solution.slug} delay={(index % 3) * 60}>
               <SolutionCard solution={solution} />
             </Reveal>
           ))}
         </div>
-        <div className="btn-row mt-7">
+
+        <div className="btn-row btn-row--center mt-7">
           <Link className="btn btn--navy" to="/solutions">
             Compare all solutions
             <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
           </Link>
           <Link className="btn btn--ghost" to="/contact">
-            Request a product demo
+            Book a product demo
           </Link>
         </div>
       </div>
@@ -108,7 +118,8 @@ export function SolutionsShowcase() {
   );
 }
 
-/** Custom development positioning: the other half of the business. */
+/* ----------------------------------------------------- Custom development */
+
 export function CustomDevelopment() {
   return (
     <section className="section" id="custom-development">
@@ -116,16 +127,14 @@ export function CustomDevelopment() {
         <div className="split split--wide-left">
           <div>
             <p className="eyebrow">Custom development</p>
-            <h2>When no ready product fits, we build the software around your process</h2>
+            <h2>When no product fits, we build the software around your process</h2>
             <p className="lead">
               You bring the requirement — a workflow, a bottleneck, a system that has to work the way your business
-              already works. We turn it into software with the same discipline we apply to client projects and our
-              own products.
+              already works. We turn it into software with the same discipline we apply to our own products.
             </p>
             <BulletList
               items={[
-                'Requirement analysis and written scope before development begins',
-                'Architecture and database design reviewed in plain language',
+                'Written scope and architecture before development begins',
                 'UI/UX designed for the people who use the system daily',
                 'Web, desktop and mobile builds from one team',
                 'Integration with your existing accounting, ERP or third-party systems',
@@ -149,7 +158,9 @@ export function CustomDevelopment() {
               width={1400}
               height={930}
             />
-            <figcaption>Requirement discussions, screen reviews and phased delivery keep the project predictable.</figcaption>
+            <figcaption>
+              Requirement discussions, screen reviews and phased delivery keep a custom project predictable.
+            </figcaption>
           </figure>
         </div>
       </div>
@@ -157,96 +168,45 @@ export function CustomDevelopment() {
   );
 }
 
-/** Portfolio preview — proves custom development capability. */
-export function PortfolioPreview() {
-  const preview = projects.slice(0, 3);
+/* ---------------------------------------------------------- Delivered work */
+
+export function ProofPreview() {
+  const preview = caseStudies.slice(0, 3);
 
   return (
-    <section className="section section--soft" id="portfolio">
+    <section className="section section--soft" id="case-studies">
       <div className="container">
         <SectionHeading
-          eyebrow="Selected work"
-          title="Projects we have designed, built and delivered"
-          lead="Websites, management software and mobile applications delivered for clients in construction, retail, education, financial services and public administration."
+          eyebrow="Delivered work"
+          title="What the software changed for the client"
+          lead="Each case study explains the problem, what we built and what the delivered system does today — the same way we would report on your project."
         />
-        <div className="portfolio-grid">
-          {preview.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-        <div className="btn-row mt-7">
-          <Link className="btn btn--navy" to="/portfolio">
-            View full portfolio
-            <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
-          </Link>
-          <Link className="btn btn--ghost" to="/case-studies">
-            Read case studies
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
 
-/** Case study preview — problem, solution and outcome in the client's context. */
-export function CaseStudiesPreview() {
-  const preview = caseStudies.slice(0, 2);
-
-  return (
-    <section className="section" id="case-studies">
-      <div className="container">
-        <SectionHeading
-          eyebrow="Case studies"
-          title="How the software solved a specific business problem"
-          lead="Each case study explains the challenge, what we built, the technology used and what the delivered system does for the client."
-        />
-        <div className="grid grid--2">
-          {preview.map((study) => (
-            <article className="card" key={study.slug}>
-              <span className="badge badge--azure" style={{ alignSelf: 'flex-start' }}>
-                {study.industry}
-              </span>
-              <h3 className="card__title mt-4">{study.title}</h3>
-              <p className="card__text">{study.summary}</p>
-              <div className="card__footer">
-                <Link className="link-arrow" to={`/case-studies/${study.slug}`}>
+        <div className="grid grid--3 mt-7">
+          {preview.map((study, index) => (
+            <Reveal key={study.slug} delay={index * 60}>
+              <article className="proof-card">
+                <span className="badge badge--navy">{study.industry}</span>
+                <h3>
+                  <Link to={`/case-studies/${study.slug}`}>{study.title}</Link>
+                </h3>
+                <p>{study.summary}</p>
+                <Link className="link-arrow proof-card__link" to={`/case-studies/${study.slug}`}>
                   Read the case study
                   <Icon name="ChevronRight" size={15} />
                 </Link>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
-        <div className="btn-row mt-7">
-          <Link className="btn btn--ghost" to="/case-studies">
-            All case studies
+
+        <div className="btn-row btn-row--center mt-7">
+          <Link className="btn btn--navy" to="/portfolio">
+            View the full portfolio
             <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
           </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/** Recent articles — supports the blog architecture without dominating the homepage. */
-export function InsightsPreview() {
-  return (
-    <section className="section section--soft" id="insights">
-      <div className="container">
-        <SectionHeading
-          eyebrow="Insights"
-          title="Practical reading before you buy business software"
-          lead="Short, specific articles on software selection, deployment and operations — written for owners and decision-makers."
-        />
-        <div className="post-grid">
-          {sortedArticles.slice(0, 3).map((article) => (
-            <ArticleCard key={article.slug} article={article} />
-          ))}
-        </div>
-        <div className="btn-row mt-7">
-          <Link className="btn btn--ghost" to="/blog">
-            All articles
-            <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
+          <Link className="btn btn--ghost" to="/case-studies">
+            All case studies
           </Link>
         </div>
       </div>

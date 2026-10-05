@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import Reveal from '../components/common/Reveal';
@@ -93,9 +92,8 @@ export default function Careers() {
           { icon: 'Users', text: 'Engineering, design and QA roles' },
           { icon: 'Briefcase', text: 'Full-time positions' },
         ]}
+        breadcrumbs={[{ label: 'Careers' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Careers' }]} />
 
       <section className="section">
         <div className="container">

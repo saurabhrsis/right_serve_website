@@ -13,9 +13,9 @@ const assurance = [
 /**
  * Homepage hero.
  *
- * The right-hand panel switches between real product screens so a visitor sees
- * both halves of the business immediately: software we build and software we
- * already run.
+ * The panel on the right switches between real product screens so a visitor
+ * sees both halves of the business immediately: software we build and software
+ * we already run.
  */
 export default function HomeHero() {
   const showcase = featuredSolutions.slice(0, 4);
@@ -25,50 +25,51 @@ export default function HomeHero() {
 
   return (
     <section className="home-hero">
-      <div className="page-hero__pattern" aria-hidden="true" />
       <div className="container container--wide">
         <div className="home-hero__inner">
-          <div>
+          <div className="home-hero__content">
             <div className="home-hero__badges">
               <span className="badge badge--dark">
                 <Icon name="MapPin" size={14} />
                 Nagpur, Maharashtra
               </span>
               <span className="badge badge--dark">
-                <Icon name="Calendar" size={14} />
-                Serving businesses since 2019
+                <Icon name="Layers" size={14} />
+                Custom software + ready products
               </span>
             </div>
 
-            <h1>Custom software and digital systems built around your business</h1>
+            <h1>
+              Software that runs your business — <em>built to fit, not to sell</em>
+            </h1>
 
             <p className="home-hero__lead">
-              We are a software development and technology solutions company. We build custom software, web
-              applications, mobile apps, ERP systems and AI-powered features — and we also deploy our own billing,
-              institute, society and construction software where a ready solution fits your business.
+              We build custom software, web and mobile applications, ERP systems and AI features for growing
+              businesses. Where a ready product already fits, we deploy our own billing, institute, society and
+              construction software instead of starting a project from zero.
             </p>
 
             <div className="home-hero__actions">
               <Link className="btn btn--primary btn--lg" to="/request-quote" data-track="hero_quote">
-                Start your project
+                Get a project estimate
                 <Icon name="ArrowRight" size={18} className="btn__icon btn__icon--arrow" />
               </Link>
               <Link className="btn btn--ghost-light btn--lg" to="/solutions" data-track="hero_solutions">
-                Explore our solutions
+                See our software
               </Link>
             </div>
 
             <div className="home-hero__assurance">
               {assurance.map((item) => (
                 <span key={item.text}>
-                  <Icon name={item.icon} size={16} />
+                  <Icon name={item.icon} size={15} />
                   {item.text}
                 </span>
               ))}
             </div>
           </div>
 
-          <div>
+          <div className="home-hero__visual">
             <div className="showcase">
               <div className="showcase__bar">
                 <span className="showcase__dot" />
@@ -115,16 +116,13 @@ export default function HomeHero() {
                 ))}
               </div>
 
-              <div className="mt-4" style={{ textAlign: 'right' }}>
+              <div className="showcase__footer">
+                <p className="showcase__note">Screens from software delivered by our team.</p>
                 <Link className="btn btn--light btn--sm" to={current?.path ?? '/solutions'}>
-                  View solution details
+                  Solution details
                 </Link>
               </div>
             </div>
-            <p className="text-muted mt-4 mb-0" style={{ fontSize: 'var(--fs-xs)' }}>
-              Screens shown are from software delivered by our team — institute ERP, business management and
-              document generation modules.
-            </p>
           </div>
         </div>
       </div>

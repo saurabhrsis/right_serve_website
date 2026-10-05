@@ -1,25 +1,27 @@
 import Icon from '../common/Icon';
+import { Link } from 'react-router-dom';
 import { site } from '../../data/site';
+import { clientLogos } from '../../data/portfolio';
 
 const facts = [
-  { icon: 'Calendar', text: `Delivering software and IT solutions since ${site.workingSince}` },
-  { icon: 'Code2', text: 'Custom software, web, desktop and mobile development' },
-  { icon: 'Layers', text: 'Six industry software products ready to deploy' },
-  { icon: 'Server', text: 'Software and IT infrastructure from one team' },
-  { icon: 'MapPin', text: `Based in ${site.address.city}, serving clients across India` },
+  { icon: 'Code2', text: 'Custom software, web and mobile development' },
+  { icon: 'Layers', text: 'Industry software products ready to deploy' },
+  { icon: 'Server', text: 'Software, cloud and IT infrastructure from one team' },
+  { icon: 'MapPin', text: `Based in ${site.address.city}, working with clients across India` },
 ];
 
 /**
- * Factual capability strip for the homepage.
- * Every statement is verifiable from the company's own records — there are no
- * counters, awards or client numbers here.
+ * Credibility band directly under the homepage hero: factual capability chips
+ * plus the clients whose projects are published in our portfolio.
+ *
+ * No counters, awards or numbers appear here — only statements the company can
+ * verify from its own records.
  */
 export default function TrustStrip() {
   return (
-    <section className="trust-strip" aria-label="Company capability summary">
+    <section className="trust-strip" aria-label="Company capability and clients">
       <div className="container container--wide">
         <div className="trust-strip__inner">
-          <p className="trust-strip__label mb-0">At a glance</p>
           <ul className="trust-strip__items">
             {facts.map((fact) => (
               <li key={fact.text}>
@@ -28,6 +30,26 @@ export default function TrustStrip() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="trust-strip__clients">
+          <p className="trust-strip__label mb-0">Working with</p>
+          <ul className="logo-rail">
+            {clientLogos.map((client) => (
+              <li key={client.name}>
+                <img
+                  src={client.logo}
+                  alt={`${client.name} — ${client.industry}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))}
+          </ul>
+          <Link className="link-arrow trust-strip__link" to="/portfolio">
+            See the projects
+            <Icon name="ArrowRight" size={15} />
+          </Link>
         </div>
       </div>
     </section>

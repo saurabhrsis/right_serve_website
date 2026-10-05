@@ -1,5 +1,4 @@
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import { ArticleCard } from '../components/common/Cards';
@@ -30,9 +29,8 @@ export default function Blog() {
         badges={['Written by our team', 'No sponsored rankings', 'Updated as practice changes']}
         primaryCta={{ label: 'Request a quote', to: '/request-quote' }}
         secondaryCta={{ label: 'Explore solutions', to: '/solutions' }}
+        breadcrumbs={[{ label: 'Blog' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Blog' }]} />
 
       <section className="section">
         <div className="container">

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import Reveal from '../components/common/Reveal';
@@ -30,9 +29,8 @@ export default function CaseStudies() {
         lead="Detailed write-ups of projects we designed and delivered. Each one follows the same structure — challenge, solution, capabilities, technology, implementation and outcome — without invented metrics."
         primaryCta={{ label: 'Discuss your requirement', to: '/request-quote' }}
         secondaryCta={{ label: 'View portfolio', to: '/portfolio' }}
+        breadcrumbs={[{ label: 'Case Studies' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Case Studies' }]} />
 
       <section className="section">
         <div className="container">

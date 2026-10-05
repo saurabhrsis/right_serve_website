@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import CtaBand from '../components/common/CtaBand';
@@ -43,9 +42,8 @@ export default function Portfolio() {
         badges={['Client projects', 'Business software', 'Websites & mobile apps']}
         primaryCta={{ label: 'Build something similar', to: '/request-quote' }}
         secondaryCta={{ label: 'Read case studies', to: '/case-studies' }}
+        breadcrumbs={[{ label: 'Portfolio' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Portfolio' }]} />
 
       <section className="section">
         <div className="container">

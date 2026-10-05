@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import Reveal from '../components/common/Reveal';
@@ -76,10 +75,11 @@ export default function About() {
         media={{
           src: '/assets/tech/team-meeting.jpg',
           alt: 'Right Serve Infotech System team working on a software project',
+          label: 'Our team at work',
+          caption: 'Requirement discussions and screen reviews happen in-house in Nagpur.',
         }}
+        breadcrumbs={[{ label: 'About' }]}
       />
-
-      <Breadcrumbs items={[{ label: 'About' }]} />
 
       {/* Story */}
       <section className="section">

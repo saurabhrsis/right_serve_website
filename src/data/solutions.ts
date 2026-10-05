@@ -755,6 +755,7 @@ export const solutions: Solution[] = [
   {
     slug: 'construction-erp',
     path: '/solutions/construction-erp',
+    featured: true,
     name: 'Construction ERP',
     navTitle: 'Construction ERP',
     navDescription: 'Project billing, documents and construction workflows',

@@ -80,7 +80,7 @@ const buildDeclaredSchema = (record: RouteRecord, schemaNames: string[]) => {
   const solution = section === 'solutions' && slug ? getSolution(slug) : undefined;
 
   const faqSets: Record<string, { q: string; a: string }[] | undefined> = {
-    '/': generalFaqs.slice(0, 6),
+    '/': generalFaqs.slice(0, 5),
     '/services': generalFaqs.slice(0, 6),
     '/about': generalFaqs.slice(0, 4),
     '/contact': generalFaqs.slice(2, 7),

@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import Seo from '../seo/Seo';
-import Breadcrumbs from '../components/layout/Breadcrumbs';
 import PageHero from '../components/common/PageHero';
 import SectionHeading, { BulletList, FeatureRows } from '../components/common/SectionHeading';
 import Reveal from '../components/common/Reveal';
@@ -59,16 +58,15 @@ export default function SolutionDetail() {
         title={solution.h1}
         lead={solution.heroLead}
         badges={solution.platforms.map((platform) => `${platform} available`)}
-        media={solution.media ? { src: solution.media.src, alt: solution.media.alt, caption: solution.media.caption } : undefined}
+        media={solution.media ? { src: solution.media.src, alt: solution.media.alt, caption: solution.media.caption, label: solution.name } : undefined}
         primaryCta={{ label: 'Request a Product Demo', to: '/contact' }}
         secondaryCta={{ label: 'Request pricing', to: '/request-quote' }}
         meta={[
           { icon: 'Layers', text: solution.subtitle },
           { icon: 'Headphones', text: 'Implementation, training and support included' },
         ]}
+        breadcrumbs={[{ label: 'Solutions', path: '/solutions' }, { label: solution.navTitle }]}
       />
-
-      <Breadcrumbs items={[{ label: 'Solutions', path: '/solutions' }, { label: solution.navTitle }]} />
 
       {/* What it is + platforms */}
       <section className="section">
