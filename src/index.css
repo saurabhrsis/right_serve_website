@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Right Serve Infotech System - design tokens
+   ========================================================================== */
+@layer base {
+  :root {
+    --rsis-navy: #0b2545;
+    --rsis-navy-deep: #061833;
+    --rsis-cyan: #06b6d4;
+    --rsis-cyan-soft: #22d3ee;
+    --rsis-gold: #f59e0b;
+    --rsis-ink: #0f172a;
+    --rsis-muted: #64748b;
+    --header-h: 76px;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink-700 antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-display text-brand-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--rsis-cyan);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--rsis-cyan);
+    color: #fff;
+  }
+
+  /* Slim, brand-coloured scrollbar (progressive enhancement) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #eef2f7;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0b2545, #0891b2);
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+@layer components {
+  .container-rsis {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-14 sm:py-20 lg:py-24;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-700;
+  }
+
+  .heading-1 {
+    @apply font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-brand-900 sm:text-4xl lg:text-5xl;
+  }
+
+  .heading-2 {
+    @apply font-display text-2xl font-bold leading-tight tracking-tight text-brand-900 sm:text-3xl lg:text-4xl;
+  }
+
+  .heading-3 {
+    @apply font-display text-lg font-bold leading-snug text-brand-900 sm:text-xl;
+  }
+
+  .lead {
+    @apply text-base leading-relaxed text-ink-500 sm:text-lg;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-accent-200 hover:shadow-card;
+  }
+
+  .glass {
+    @apply border border-white/15 bg-white/10 backdrop-blur-md;
+  }
+
+  /* Primary call-to-action */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-900 text-white shadow-soft hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-card;
+  }
+
+  .btn-accent {
+    @apply btn bg-gradient-to-r from-accent-500 to-brand-600 text-white shadow-soft hover:-translate-y-0.5 hover:shadow-glow;
+  }
+
+  .btn-outline {
+    @apply btn border border-brand-900/15 bg-white text-brand-900 hover:-translate-y-0.5 hover:border-brand-900/40 hover:shadow-soft;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-white/30 text-white hover:bg-white/10;
+  }
+
+  .link-underline {
+    @apply relative font-semibold text-brand-800 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-accent-500 after:transition-all hover:after:w-full;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-ink-600;
+  }
+
+  .prose-rsis {
+    @apply text-[15px] leading-7 text-ink-600;
+  }
+  .prose-rsis h2 {
+    @apply mb-3 mt-10 text-xl font-bold text-brand-900 sm:text-2xl;
+  }
+  .prose-rsis h3 {
+    @apply mb-2 mt-8 text-lg font-bold text-brand-900;
+  }
+  .prose-rsis p {
+    @apply mb-4;
+  }
+  .prose-rsis ul {
+    @apply mb-4 list-disc space-y-2 pl-6;
+  }
+  .prose-rsis ol {
+    @apply mb-4 list-decimal space-y-2 pl-6;
+  }
+  .prose-rsis a {
+    @apply font-semibold text-brand-700 underline decoration-accent-400 decoration-2 underline-offset-2 hover:text-accent-600;
+  }
+  .prose-rsis strong {
+    @apply font-semibold text-ink-800;
+  }
+
+  /* Decorative background grid used behind hero + dark sections */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 46px 46px;
+  }
+  .bg-grid-light {
+    background-image:
+      linear-gradient(to right, rgba(11, 37, 69, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 37, 69, 0.055) 1px, transparent 1px);
+    background-size: 46px 46px;
+  }
+}
+
+/* ==========================================================================
+   Utilities & scroll-reveal animation
+   ========================================================================== */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-300 via-accent-400 to-brand-300 bg-clip-text text-transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

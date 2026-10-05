@@ -1,0 +1,17 @@
+# Netlify / Cloudflare Pages redirects (the prerender step already generates
+# per-route HTML; these rules preserve legacy URLs and add an SPA fallback
+# for client-side routing on dynamic paths).
+/home                /                      301
+/about-us            /about                 301
+/aboutus             /about                 301
+/team                /our-team              301
+/careers             /career                301
+/jobs                /career                301
+/software            /services/software     301
+/hardware            /services/hardware     301
+/marketing           /services/marketing    301
+/blog                /insights              301
+/privacy             /privacy-policy        301
+/terms               /terms-and-conditions  301
+
+/*  /index.html  404
