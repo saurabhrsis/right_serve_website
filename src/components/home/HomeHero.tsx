@@ -31,8 +31,8 @@ export default function HomeHero() {
 
             <h1>
               <span className="hero__line">Software built</span>{' '}
-              <span className="hero__line">around the way</span>{' '}
-              <span className="hero__line">your business works.</span>
+              <span className="hero__line">around your</span>{' '}
+              <span className="hero__line">business.</span>
             </h1>
 
             <p className="hero__lead">
