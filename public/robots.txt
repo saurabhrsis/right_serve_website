@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# No admin, API or private areas are exposed on this domain, so nothing is
+# disallowed. Static build assets are crawlable so page speed signals work.
+
+Sitemap: https://rightserveinfotechsystem.com/sitemap.xml
+Host: https://rightserveinfotechsystem.com
