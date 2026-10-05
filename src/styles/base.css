@@ -12,6 +12,11 @@
   margin: 0;
 }
 
+/* Anchor targets clear the sticky header. */
+[id] {
+  scroll-margin-top: 96px;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
@@ -257,12 +262,12 @@ ol {
 }
 
 .section--muted {
-  background: var(--bg-raised);
+  background: linear-gradient(180deg, var(--bg-raised) 0%, var(--bg) 100%);
   border-block: 1px solid var(--border-soft);
 }
 
 .section--surface {
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-raised) 100%);
   border-block: 1px solid var(--border-soft);
 }
 

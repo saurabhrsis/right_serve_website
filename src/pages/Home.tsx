@@ -2,14 +2,10 @@ import Seo from '../seo/Seo';
 import HomeHero from '../components/home/HomeHero';
 import {
   CustomDevelopment,
-  Engineering,
-  IndustriesIndex,
-  ProductsSpotlight,
-  SelectedWork,
+  DeliveredWork,
+  ProductsShowcase,
   WhatWeBuild,
-  WhyRightServe,
 } from '../components/home/HomeSections';
-import TrustStrip from '../components/sections/TrustStrip';
 import Process from '../components/sections/Process';
 import { FaqSection } from '../components/common/Faq';
 import CtaBand from '../components/common/CtaBand';
@@ -25,9 +21,9 @@ import {
 /**
  * Homepage.
  *
- * A sales page, not a sitemap: the hero states what we do, the next bands prove
- * it with real screens and client work, and every block hands off to the page
- * that covers the subject in depth. Detail lives on those pages.
+ * A sales page, not a sitemap: seven bands, each one short, each ending in a
+ * link that goes deeper. Industries, technology and the rest of the detail live
+ * on the pages that can present them properly.
  */
 export default function Home() {
   const homeFaqs = generalFaqs.slice(0, 3);
@@ -45,21 +41,18 @@ export default function Home() {
       />
 
       <HomeHero />
-      <TrustStrip />
       <WhatWeBuild />
-      <ProductsSpotlight />
+      <ProductsShowcase />
       <CustomDevelopment />
-      <SelectedWork />
-      <IndustriesIndex />
-      <Engineering />
-      <WhyRightServe />
+      <DeliveredWork />
 
       <Process
         limit={4}
+        align="left"
         id="process-summary"
         eyebrow="How we work"
         title="From first discussion to support"
-        lead="Four stages, each ending in something you review and approve. Phase two starts when you decide it does."
+        lead="Four stages, each ending in something you review and approve. The full eight-stage process is documented on the services page."
         cta={{ label: 'See the full process', to: '/services' }}
       />
 

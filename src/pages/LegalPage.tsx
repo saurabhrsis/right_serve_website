@@ -33,7 +33,7 @@ export default function LegalPage({ document }: { document: LegalDocument }) {
         breadcrumbs={[{ label: document.breadcrumb }]}
       />
 
-      <section className="section">
+      <section className="section theme-light">
         <div className="container">
           <div className="prose">
             {document.intro.map((paragraph) => (
@@ -72,14 +72,16 @@ export default function LegalPage({ document }: { document: LegalDocument }) {
         </div>
       </section>
 
-      <CtaBand
-        title="Questions about our policies?"
-        text="If anything here is unclear, or you want to know how we would handle a specific type of information in your project, ask us directly."
-        primaryLabel="Contact us"
-        primaryPath="/contact"
-        secondaryLabel="Read our services"
-        secondaryPath="/services"
-      />
+      <div className="theme-light">
+        <CtaBand
+          title="Questions about our policies?"
+          text="If anything here is unclear, or you want to know how we would handle a specific type of information in your project, ask us directly."
+          primaryLabel="Contact us"
+          primaryPath="/contact"
+          secondaryLabel="Read our services"
+          secondaryPath="/services"
+        />
+      </div>
     </>
   );
 }

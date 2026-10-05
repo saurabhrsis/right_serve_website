@@ -30,9 +30,11 @@ interface PageHeroProps {
 /**
  * Standard page header used by every non-home page.
  *
- * Two compositions keep the band from reading as an empty coloured strip:
- *  - with media  → headline on the left, framed screenshot on the right;
- *  - without media → editorial split: headline left, copy and actions right.
+ * The statement (eyebrow → headline → lead → actions) occupies the left column.
+ * The right column carries the proof: a framed screenshot on pages that have
+ * one, otherwise an "at a glance" panel built from the page's own badges and
+ * facts, so the band never reads as a stranded block of text.
+ *
  * Every page renders exactly one H1 here.
  */
 export default function PageHero({
@@ -53,20 +55,20 @@ export default function PageHero({
     primaryCta || secondaryCta ? (
       <div className="hero__actions">
         {primaryCta ? (
-          <Link className="btn btn--primary" to={primaryCta.to}>
+          <Link className="btn btn--primary btn--lg" to={primaryCta.to}>
             {primaryCta.label}
-            <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
+            <Icon name="ArrowRight" size={18} className="btn__icon btn__icon--arrow" />
           </Link>
         ) : null}
         {secondaryCta ? (
-          <Link className="btn btn--ghost" to={secondaryCta.to}>
+          <Link className="btn btn--ghost btn--lg" to={secondaryCta.to}>
             {secondaryCta.label}
           </Link>
         ) : null}
       </div>
     ) : null;
 
-  const badgeRow = badges?.length ? (
+  const badgeChips = badges?.length ? (
     <div className="badge-row">
       {badges.map((badge) => (
         <span className="badge" key={badge}>
@@ -77,7 +79,7 @@ export default function PageHero({
     </div>
   ) : null;
 
-  const metaRow = meta?.length ? (
+  const factRow = meta?.length ? (
     <div className="hero__facts">
       {meta.map((item) => (
         <span key={item.text}>
@@ -88,7 +90,62 @@ export default function PageHero({
     </div>
   ) : null;
 
-  const eyebrowLine = eyebrow ? <p className="hero__eyebrow">{eyebrow}</p> : null;
+  const hasAside = Boolean(media) || Boolean(badges?.length || meta?.length);
+
+  const aside = media ? (
+    <figure className="hero__visual">
+      <div className="frame">
+        <div className="frame__bar">
+          <span className="frame__dot" />
+          <span className="frame__dot" />
+          <span className="frame__dot" />
+          <span className="frame__label">{media.label ?? 'Software preview'}</span>
+        </div>
+        <div className="frame__screen">
+          <SmartImage
+            src={media.src}
+            alt={media.alt}
+            width={1200}
+            height={750}
+            priority
+            objectPosition="top center"
+          />
+        </div>
+        {media.caption ? <figcaption className="frame__caption">{media.caption}</figcaption> : null}
+      </div>
+    </figure>
+  ) : hasAside ? (
+    <aside className="hero__aside">
+      <div className="hero__panel">
+        {badges?.length ? (
+          <>
+            <p className="hero__panel-label">At a glance</p>
+            <ul className="hero__panel-list">
+              {badges.map((badge) => (
+                <li key={badge}>
+                  <span className="hero__panel-check" aria-hidden="true">
+                    <Icon name="Check" size={13} />
+                  </span>
+                  <span>{badge}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
+
+        {meta?.length ? (
+          <ul className="hero__panel-meta">
+            {meta.map((item) => (
+              <li key={item.text}>
+                <Icon name={item.icon} size={15} />
+                <span>{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </aside>
+  ) : null;
 
   const className = [
     'hero',
@@ -104,56 +161,22 @@ export default function PageHero({
       <div className="container container--wide">
         {breadcrumbs?.length ? <Breadcrumbs items={breadcrumbs} variant="hero" /> : null}
 
-        <div className={`hero__inner ${media ? 'hero__inner--split' : 'hero__inner--text'}`}>
-          {media ? (
-            <>
-              <div className="hero__copy">
-                {eyebrowLine}
-                <h1>{title}</h1>
-                <p className="hero__lead">{lead}</p>
-                {badgeRow}
-                {actions}
-                {metaRow}
-                {children}
-              </div>
+        <div
+          className={`hero__inner${
+            media ? ' hero__inner--split' : hasAside ? ' hero__inner--text' : ' hero__inner--single'
+          }`}
+        >
+          <div className="hero__copy">
+            {eyebrow ? <p className="hero__eyebrow">{eyebrow}</p> : null}
+            <h1>{title}</h1>
+            <p className="hero__lead">{lead}</p>
+            {actions}
+            {media ? badgeChips : null}
+            {media ? factRow : null}
+            {children}
+          </div>
 
-              <figure className="hero__visual">
-                <div className="frame">
-                  <div className="frame__bar">
-                    <span className="frame__dot" />
-                    <span className="frame__dot" />
-                    <span className="frame__dot" />
-                    <span className="frame__label">{media.label ?? 'Software preview'}</span>
-                  </div>
-                  <div className="frame__screen">
-                    <SmartImage
-                      src={media.src}
-                      alt={media.alt}
-                      width={1200}
-                      height={750}
-                      priority
-                      objectPosition="top center"
-                    />
-                  </div>
-                  {media.caption ? <p className="frame__caption">{media.caption}</p> : null}
-                </div>
-              </figure>
-            </>
-          ) : (
-            <>
-              <div className="hero__title">
-                {eyebrowLine}
-                <h1>{title}</h1>
-              </div>
-              <div className="hero__copy">
-                <p className="hero__lead">{lead}</p>
-                {badgeRow}
-                {actions}
-                {metaRow}
-                {children}
-              </div>
-            </>
-          )}
+          {aside}
         </div>
       </div>
     </section>

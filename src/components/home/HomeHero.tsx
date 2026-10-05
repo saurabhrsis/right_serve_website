@@ -1,28 +1,24 @@
 import { Link } from 'react-router-dom';
 import Icon from '../common/Icon';
 import SmartImage from '../common/SmartImage';
-import { projects } from '../../data/portfolio';
-import { solutions } from '../../data/solutions';
+import { projects, clientLogos } from '../../data/portfolio';
+import { featuredSolutions } from '../../data/solutions';
 import { site } from '../../data/site';
 
 /**
  * Homepage hero.
  *
- * Built as a composition rather than a stack of text: a three-line headline on
- * the left, and on the right a layered pair of genuine product screens — one
- * custom system, one ready product — so the two halves of the business are
- * visible in the first five seconds.
+ * Composition rather than a text block: a statement on the left, a real
+ * screenshot of delivered software on the right with a product card layered
+ * over it, and the client logo rail closing the band.
  */
 
-/** A custom system we delivered — shown in the main frame. */
-const customBuild = projects.find((project) => project.slug === 'inventory-management-system');
-/** One of our own products — shown as the layered card. */
-const productApp = solutions.find((solution) => solution.slug === 'business-management');
+const showpiece = projects.find((project) => project.slug === 'mdr-management-software');
 
 const facts = [
-  { icon: 'MapPin', text: `Nagpur, Maharashtra · clients across India` },
-  { icon: 'Code2', text: 'Custom software, web and mobile' },
-  { icon: 'Layers', text: 'Ready products you can deploy now' },
+  { icon: 'MapPin', text: `Based in ${site.address.city}, working across India` },
+  { icon: 'Code2', text: 'Custom software, web and mobile development' },
+  { icon: 'Layers', text: 'Our own billing and ERP products, ready to deploy' },
 ];
 
 export default function HomeHero() {
@@ -31,21 +27,17 @@ export default function HomeHero() {
       <div className="container container--wide">
         <div className="hero__inner hero__inner--split">
           <div className="hero__copy">
-            <p className="hero__eyebrow">
-              Software company in {site.address.city}
-            </p>
+            <p className="hero__eyebrow">Software company in {site.address.city}</p>
 
             <h1>
-              Software built
-              <br />
-              around your
-              <br />
-              business.
+              <span className="hero__line">Software built</span>{' '}
+              <span className="hero__line">around the way</span>{' '}
+              <span className="hero__line">your business works.</span>
             </h1>
 
             <p className="hero__lead">
-              We build custom web, desktop and mobile systems for businesses — and we already run our own
-              billing, ERP and management products.
+              We build custom web, desktop and mobile systems for growing businesses — and we run our own billing,
+              ERP and management products, so you can start from working software.
             </p>
 
             <div className="hero__actions">
@@ -53,8 +45,8 @@ export default function HomeHero() {
                 Request a quote
                 <Icon name="ArrowRight" size={18} className="btn__icon btn__icon--arrow" />
               </Link>
-              <Link className="btn btn--ghost btn--lg" to="/portfolio" data-track="hero_work">
-                See delivered work
+              <Link className="btn btn--ghost btn--lg" to="/solutions" data-track="hero_solutions">
+                See our products
               </Link>
             </div>
 
@@ -72,86 +64,72 @@ export default function HomeHero() {
             <div className="stage">
               <span className="stage__glow" aria-hidden="true" />
 
-              <figure className="stage__main">
-                <div className="frame">
-                  <div className="frame__bar">
-                    <span className="frame__dot" />
-                    <span className="frame__dot" />
-                    <span className="frame__dot" />
-                    <span className="frame__label">{customBuild?.title ?? 'Custom system'}</span>
-                  </div>
-                  <div className="frame__screen">
-                    {customBuild?.image ? (
+              {showpiece?.image ? (
+                <figure className="stage__main">
+                  <div className="frame">
+                    <div className="frame__bar">
+                      <span className="frame__dot" />
+                      <span className="frame__dot" />
+                      <span className="frame__dot" />
+                      <span className="frame__label">{showpiece.title}</span>
+                    </div>
+                    <div className="frame__screen">
                       <SmartImage
-                        src={customBuild.image}
-                        alt={`${customBuild.title} — ${customBuild.industry}`}
-                        width={1200}
-                        height={750}
+                        src={showpiece.image}
+                        alt={`${showpiece.title} — ${showpiece.industry}`}
+                        width={1366}
+                        height={648}
                         priority
                         objectPosition="top center"
                       />
-                    ) : (
-                      <div className="ui-mock" role="img" aria-label="Interface layout of a custom system we built">
-                        <div className="ui-mock__side" aria-hidden="true">
-                          <span className="ui-mock__dot ui-mock__dot--accent" />
-                          <span className="ui-mock__dot" />
-                          <span className="ui-mock__dot" />
-                          <span className="ui-mock__dot" />
-                          <span className="ui-mock__dot" />
-                        </div>
-                        <div className="ui-mock__body" aria-hidden="true">
-                          <div className="ui-mock__cards">
-                            <span className="ui-mock__card ui-mock__card--accent" />
-                            <span className="ui-mock__card" />
-                            <span className="ui-mock__card" />
-                          </div>
-                          <div className="ui-mock__rows">
-                            <span className="ui-mock__row" />
-                            <span className="ui-mock__row" />
-                            <span className="ui-mock__row ui-mock__row--short" />
-                          </div>
-                          <span className="ui-mock__label">System layout</span>
-                        </div>
-                      </div>
-                    )}
+                    </div>
                   </div>
-                </div>
-              </figure>
-
-              {productApp?.media ? (
-                <figure className="stage__float">
-                  <img
-                    src={productApp.media.src}
-                    alt={productApp.media.alt}
-                    width={640}
-                    height={400}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption className="stage__tag">
-                    <Icon name="Layers" size={13} />
-                    {productApp.navTitle} · our product
+                  <figcaption className="stage__caption">
+                    <span>
+                      <Icon name="Monitor" size={14} />
+                      Desktop
+                    </span>
+                    <span>
+                      <Icon name="Globe" size={14} />
+                      Web
+                    </span>
+                    <span>
+                      <Icon name="Smartphone" size={14} />
+                      Mobile
+                    </span>
+                    <span>Delivered and supported by our team</span>
                   </figcaption>
                 </figure>
               ) : null}
-            </div>
 
-            <div className="stage__caption">
-              <span>
-                <Icon name="Monitor" size={14} />
-                Desktop
-              </span>
-              <span>
-                <Icon name="Globe" size={14} />
-                Web
-              </span>
-              <span>
-                <Icon name="Smartphone" size={14} />
-                Mobile
-              </span>
-              <span>Screens from software delivered by our team</span>
+              <aside className="stage__card">
+                <p className="stage__card-label">Ready products</p>
+                <ul className="stage__card-list">
+                  {featuredSolutions.slice(0, 4).map((solution) => (
+                    <li key={solution.slug}>
+                      <Icon name="Check" size={13} />
+                      {solution.navTitle}
+                    </li>
+                  ))}
+                </ul>
+                <Link className="link-arrow stage__card-link" to="/solutions">
+                  Explore products
+                  <Icon name="ArrowRight" size={15} />
+                </Link>
+              </aside>
             </div>
           </div>
+        </div>
+
+        <div className="hero__logos">
+          <p className="hero__logos-label">Working with businesses in Nagpur and across India</p>
+          <ul className="logo-rail">
+            {clientLogos.map((client) => (
+              <li key={client.name}>
+                <img src={client.logo} alt={`${client.name} — ${client.industry}`} loading="lazy" decoding="async" />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
