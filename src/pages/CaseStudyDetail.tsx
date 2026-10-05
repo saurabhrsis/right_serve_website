@@ -190,7 +190,7 @@ export default function CaseStudyDetail() {
           <div className="grid grid--3">
             {others.map((item) => (
               <article className="card card--soft" key={item.slug}>
-                <span className="badge badge--navy" style={{ alignSelf: 'flex-start' }}>
+                <span className="badge" style={{ alignSelf: 'flex-start' }}>
                   {item.industry}
                 </span>
                 <h3 className="card__title mt-4">

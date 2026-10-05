@@ -1,78 +1,75 @@
 /* ==========================================================================
-   Right Serve Infotech System — Design tokens
-   Single source of truth for colour, type scale, spacing, radii and layout.
+   Right Serve Infotech System — design tokens
+   --------------------------------------------------------------------------
+   A dark, neutral foundation with a single electric-indigo accent.
+
+   Rules this file enforces:
+   - one accent colour, used only for action, emphasis and small graphics;
+   - neutrals carry the design (near-black page, charcoal surfaces, off-white
+     text) so sections differ through composition, not through colour;
+   - a restrained radius and shadow scale;
+   - `clamp()` type that stays readable from 360px phones to 4K displays.
+
+   `.theme-light` re-points the same variables so a band can invert to an
+   off-white surface without any component needing a second style.
    ========================================================================== */
 
 :root {
-  /* ---------- Brand palette ---------- */
-  --navy-950: #04121f;
-  --navy-900: #071c33;
-  --navy-800: #0a2540;
-  --navy-700: #0f3358;
-  --navy-600: #164a78;
-  --navy-500: #1d5c93;
-  --navy-100: #e7eef7;
-  --navy-50: #f2f7fc;
+  /* ---------------------------------------------------------- Neutrals */
+  --bg: #08090b;
+  --bg-raised: #0d0f12;
+  --surface: #121419;
+  --surface-2: #171a20;
+  --surface-3: #1e2229;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.16);
 
-  --azure-700: #0f52b8;
-  --azure-600: #1668e3;
-  --azure-500: #2f83f7;
-  --azure-200: #bcd8fb;
-  --azure-100: #e6f0fe;
-  --azure-50: #f2f7fe;
+  --text: #f4f6f8;
+  --text-muted: #9aa3ae;
+  --text-soft: #6f7783;
 
-  --teal-600: #0d7d84;
-  --teal-500: #14a0a8;
-  --teal-100: #e0f5f6;
+  /* ------------------------------------------------------------ Accent */
+  --accent: #5b7cfa;
+  --accent-hover: #738ffc;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(91, 124, 250, 0.14);
+  --accent-line: rgba(91, 124, 250, 0.42);
+  --accent-glow: rgba(91, 124, 250, 0.22);
 
-  --amber-600: #b7791f;
-  --amber-500: #dd9a26;
-  --amber-100: #fdf3e0;
+  /* Semantic aliases (kept small — colour is not a decoration system). */
+  --focus: #8ea6ff;
+  --danger: #f2777a;
+  --success: #4ade80;
 
-  --green-600: #17795a;
-  --green-100: #e2f5ec;
-
-  /* ---------- Neutrals ---------- */
-  --ink-900: #0c1723;
-  --ink-800: #1b2733;
-  --ink-700: #364454;
-  --ink-600: #4c5b6c;
-  --ink-500: #667686;
-  --ink-400: #8b98a7;
-  --ink-300: #b6c1cd;
-  --line-strong: #cdd8e4;
-  --line: #dfe7f0;
-  --line-soft: #eaf0f7;
-  --surface: #ffffff;
-  --surface-2: #f7fafd;
-  --surface-3: #eff4fa;
-  --surface-4: #e7eef7;
-
-  /* ---------- Semantic ---------- */
-  --text: var(--ink-900);
-  --text-muted: var(--ink-600);
-  --text-soft: var(--ink-500);
-  --link: var(--azure-700);
-  --focus: #1668e3;
-
-  /* ---------- Typography ---------- */
-  --font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  /* ------------------------------------------------------- Typography */
+  --font-sans: 'Manrope Variable', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  --font-mono: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
 
-  /* Fluid scale — grows smoothly up to 4K/TV widths, then holds. */
-  --fs-display: clamp(2.25rem, 1.35rem + 3.1vw, 4.5rem);
-  --fs-h1: clamp(2rem, 1.35rem + 2.3vw, 3.75rem);
-  --fs-h2: clamp(1.6rem, 1.2rem + 1.4vw, 2.75rem);
-  --fs-h3: clamp(1.25rem, 1.08rem + 0.6vw, 1.75rem);
-  --fs-h4: clamp(1.1rem, 1.02rem + 0.3vw, 1.35rem);
-  --fs-lead: clamp(1.05rem, 0.98rem + 0.45vw, 1.375rem);
-  --fs-body: clamp(1rem, 0.97rem + 0.16vw, 1.15rem);
-  --fs-sm: clamp(0.925rem, 0.9rem + 0.1vw, 1.02rem);
-  --fs-xs: clamp(0.8rem, 0.78rem + 0.08vw, 0.875rem);
-  --fs-eyebrow: clamp(0.75rem, 0.73rem + 0.1vw, 0.875rem);
+  --fs-display: clamp(2.5rem, 1.15rem + 4.7vw, 4.75rem); /* 40 → 76px */
+  --fs-h1: clamp(2.125rem, 1.25rem + 3.1vw, 3.5rem); /* 34 → 56px */
+  --fs-h2: clamp(1.75rem, 1.25rem + 1.7vw, 2.625rem); /* 28 → 42px */
+  --fs-h3: clamp(1.25rem, 1.12rem + 0.55vw, 1.625rem); /* 20 → 26px */
+  --fs-h4: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --fs-lead: clamp(1.0625rem, 1rem + 0.42vw, 1.3125rem); /* 17 → 21px */
+  --fs-body: clamp(1rem, 0.97rem + 0.16vw, 1.125rem); /* 16 → 18px */
+  --fs-sm: clamp(0.9375rem, 0.92rem + 0.1vw, 1rem); /* 15 → 16px */
+  --fs-xs: clamp(0.8125rem, 0.8rem + 0.08vw, 0.875rem);
+  --fs-eyebrow: clamp(0.6875rem, 0.67rem + 0.1vw, 0.8125rem);
 
-  /* ---------- Spacing ---------- */
+  --lh-display: 0.98;
+  --lh-heading: 1.08;
+  --lh-snug: 1.25;
+  --lh-body: 1.65;
+
+  --fw-display: 800;
+  --fw-heading: 750;
+  --fw-h3: 680;
+  --fw-label: 600;
+  --fw-body: 440;
+
+  /* ---------------------------------------------------------- Spacing */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -82,57 +79,90 @@
   --space-7: 48px;
   --space-8: 64px;
   --space-9: 96px;
-  --section-y: clamp(3.5rem, 2.4rem + 4.2vw, 7rem);
-  --section-y-tight: clamp(2.5rem, 1.8rem + 2.6vw, 4.5rem);
-  --gutter: clamp(1.25rem, 0.6rem + 2.4vw, 4.5rem);
+  --space-10: 128px;
 
-  /* ---------- Layout ---------- */
-  --container: 1240px;
-  --container-narrow: 880px;
-  --container-reading: 720px;
+  /* Vertical rhythm: generous on desktop, sane on phones. */
+  --section-y: clamp(4rem, 2.25rem + 6.2vw, 10.5rem);
+  --section-y-tight: clamp(3rem, 2rem + 3.4vw, 6rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 3.5rem);
 
-  /* ---------- Radii & elevation ---------- */
+  /* ----------------------------------------------------------- Layout */
+  --container: 1280px;
+  --container-wide: 1420px;
+  --container-narrow: 960px;
+  --container-reading: 680px;
+
+  /* ------------------------------------------------------------ Radii */
   --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
   --radius-pill: 999px;
 
-  --shadow-1: 0 1px 2px rgba(9, 30, 54, 0.06), 0 1px 3px rgba(9, 30, 54, 0.05);
-  --shadow-2: 0 4px 12px rgba(9, 30, 54, 0.07), 0 2px 4px rgba(9, 30, 54, 0.04);
-  --shadow-3: 0 18px 40px -18px rgba(9, 30, 54, 0.28), 0 6px 14px -8px rgba(9, 30, 54, 0.12);
-  --shadow-4: 0 34px 70px -32px rgba(7, 28, 51, 0.45);
+  /* ---------------------------------------------------------- Shadows */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --shadow-3: 0 24px 60px -28px rgba(0, 0, 0, 0.75);
+  --shadow-4: 0 48px 110px -40px rgba(0, 0, 0, 0.85);
+  --hairline-top: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
-  --ring: 0 0 0 3px rgba(22, 104, 227, 0.28);
-  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  --transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 420ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Large desktop / 2K */
-@media (min-width: 1700px) {
-  :root {
-    --container: 1400px;
-    --container-narrow: 960px;
-  }
+/* ----------------------------------------------------------------- Light band
+   Used for at most one or two bands per page so the site keeps a dark, neutral
+   foundation while still gaining rhythm. Components read the same variables. */
+.theme-light {
+  --bg: #f5f6f8;
+  --bg-raised: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f0f2f5;
+  --surface-3: #e7eaef;
+  --border: rgba(12, 16, 22, 0.12);
+  --border-soft: rgba(12, 16, 22, 0.07);
+  --border-strong: rgba(12, 16, 22, 0.2);
+
+  --text: #0c1016;
+  --text-muted: #4a5563;
+  --text-soft: #667085;
+
+  --accent: #3f5fe0;
+  --accent-hover: #3350c9;
+  --accent-soft: rgba(63, 95, 224, 0.1);
+  --accent-line: rgba(63, 95, 224, 0.35);
+  --accent-glow: rgba(63, 95, 224, 0.14);
+
+  --shadow-1: 0 1px 2px rgba(12, 22, 40, 0.07);
+  --shadow-2: 0 10px 24px -14px rgba(12, 22, 40, 0.25);
+  --shadow-3: 0 28px 60px -30px rgba(12, 22, 40, 0.3);
+  --shadow-4: 0 50px 110px -45px rgba(12, 22, 40, 0.4);
+  --hairline-top: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* 4K / large TVs — widen layout and lift the type ceiling without going oversized. */
-@media (min-width: 2300px) {
+/* --------------------------------------------------------------- 2K / 4K
+   Widen the composition and lift the type ceiling so large screens feel
+   designed rather than stretched. */
+@media (min-width: 1900px) {
   :root {
-    --container: 1560px;
+    --container: 1360px;
+    --container-wide: 1560px;
     --container-narrow: 1040px;
-    --container-reading: 780px;
-    --fs-display: clamp(4rem, 2.4rem + 1.9vw, 5.25rem);
-    --fs-h1: clamp(3.25rem, 2.2rem + 1.4vw, 4.25rem);
-    --fs-h2: clamp(2.4rem, 1.8rem + 0.9vw, 3.1rem);
+    --fs-display: clamp(4.5rem, 2.4rem + 2.6vw, 5.5rem); /* up to 88px */
+    --fs-h2: clamp(2.5rem, 1.8rem + 1.4vw, 3.25rem);
   }
 }
 
-@media (min-width: 3000px) {
+@media (min-width: 2600px) {
   :root {
-    --container: 1720px;
+    --container: 1440px;
+    --container-wide: 1680px;
     --container-narrow: 1120px;
-    --section-y: 8.5rem;
+    --fs-h1: clamp(3.5rem, 2.4rem + 1.4vw, 4rem);
   }
 }

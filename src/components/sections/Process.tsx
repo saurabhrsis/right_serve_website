@@ -8,7 +8,7 @@ interface ProcessProps {
   eyebrow?: string;
   title?: string;
   lead?: string;
-  variant?: 'light' | 'navy';
+  variant?: 'light' | 'dark';
   id?: string;
   /** Show only the first N steps (the homepage shows a shorter summary). */
   limit?: number;
@@ -31,7 +31,7 @@ export default function Process({
   const steps = limit ? processSteps.slice(0, limit) : processSteps;
 
   return (
-    <section className={`section${variant === 'navy' ? ' section--navy' : ' section--soft'}`} id={id}>
+    <section className={`section${variant === 'dark' ? ' section--surface' : ' section--muted'}`} id={id}>
       <div className="container">
         <SectionHeading eyebrow={eyebrow} title={title} lead={lead} align={align} />
         <ol className="steps">
@@ -46,7 +46,7 @@ export default function Process({
 
         {cta ? (
           <div className="btn-row btn-row--center mt-7">
-            <Link className="btn btn--navy" to={cta.to}>
+            <Link className="btn btn--ghost" to={cta.to}>
               {cta.label}
               <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
             </Link>

@@ -1,127 +1,155 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../common/Icon';
 import SmartImage from '../common/SmartImage';
-import { featuredSolutions } from '../../data/solutions';
-
-const assurance = [
-  { icon: 'CheckCircle2', text: 'Custom development to your workflow' },
-  { icon: 'Layers', text: 'Industry software ready to deploy' },
-  { icon: 'Headphones', text: 'Support after go-live' },
-];
+import { projects } from '../../data/portfolio';
+import { solutions } from '../../data/solutions';
+import { site } from '../../data/site';
 
 /**
  * Homepage hero.
  *
- * The panel on the right switches between real product screens so a visitor
- * sees both halves of the business immediately: software we build and software
- * we already run.
+ * Built as a composition rather than a stack of text: a three-line headline on
+ * the left, and on the right a layered pair of genuine product screens — one
+ * custom system, one ready product — so the two halves of the business are
+ * visible in the first five seconds.
  */
+
+/** A custom system we delivered — shown in the main frame. */
+const customBuild = projects.find((project) => project.slug === 'inventory-management-system');
+/** One of our own products — shown as the layered card. */
+const productApp = solutions.find((solution) => solution.slug === 'business-management');
+
+const facts = [
+  { icon: 'MapPin', text: `Nagpur, Maharashtra · clients across India` },
+  { icon: 'Code2', text: 'Custom software, web and mobile' },
+  { icon: 'Layers', text: 'Ready products you can deploy now' },
+];
+
 export default function HomeHero() {
-  const showcase = featuredSolutions.slice(0, 4);
-  const [active, setActive] = useState(0);
-  const current = showcase[active];
-  const currentMedia = current?.media;
-
   return (
-    <section className="home-hero">
+    <section className="hero hero--home">
       <div className="container container--wide">
-        <div className="home-hero__inner">
-          <div className="home-hero__content">
-            <div className="home-hero__badges">
-              <span className="badge badge--dark">
-                <Icon name="MapPin" size={14} />
-                Nagpur, Maharashtra
-              </span>
-              <span className="badge badge--dark">
-                <Icon name="Layers" size={14} />
-                Custom software + ready products
-              </span>
-            </div>
-
-            <h1>
-              Software that runs your business — <em>built to fit, not to sell</em>
-            </h1>
-
-            <p className="home-hero__lead">
-              We build custom software, web and mobile applications, ERP systems and AI features for growing
-              businesses. Where a ready product already fits, we deploy our own billing, institute, society and
-              construction software instead of starting a project from zero.
+        <div className="hero__inner hero__inner--split">
+          <div className="hero__copy">
+            <p className="hero__eyebrow">
+              Software company in {site.address.city}
             </p>
 
-            <div className="home-hero__actions">
+            <h1>
+              Software built
+              <br />
+              around your
+              <br />
+              business.
+            </h1>
+
+            <p className="hero__lead">
+              We build custom web, desktop and mobile systems for businesses — and we already run our own
+              billing, ERP and management products.
+            </p>
+
+            <div className="hero__actions">
               <Link className="btn btn--primary btn--lg" to="/request-quote" data-track="hero_quote">
-                Get a project estimate
+                Request a quote
                 <Icon name="ArrowRight" size={18} className="btn__icon btn__icon--arrow" />
               </Link>
-              <Link className="btn btn--ghost-light btn--lg" to="/solutions" data-track="hero_solutions">
-                See our software
+              <Link className="btn btn--ghost btn--lg" to="/portfolio" data-track="hero_work">
+                See delivered work
               </Link>
             </div>
 
-            <div className="home-hero__assurance">
-              {assurance.map((item) => (
-                <span key={item.text}>
-                  <Icon name={item.icon} size={15} />
-                  {item.text}
+            <div className="hero__facts">
+              {facts.map((fact) => (
+                <span key={fact.text}>
+                  <Icon name={fact.icon} size={15} />
+                  {fact.text}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="home-hero__visual">
-            <div className="showcase">
-              <div className="showcase__bar">
-                <span className="showcase__dot" />
-                <span className="showcase__dot" />
-                <span className="showcase__dot" />
-                <span className="showcase__label">{current?.name}</span>
-              </div>
+          <div className="hero__visual">
+            <div className="stage">
+              <span className="stage__glow" aria-hidden="true" />
 
-              <div className="showcase__shot">
-                {currentMedia ? (
-                  <SmartImage
-                    src={currentMedia.src}
-                    alt={currentMedia.alt}
-                    width={1200}
-                    height={750}
-                    priority={active === 0}
-                    objectPosition="top center"
-                  />
-                ) : (
-                  <div className="solution-card__fallback">
-                    <span>{current?.category}</span>
-                    <strong>{current?.name}</strong>
-                    <span>{current?.platforms.join(' · ')}</span>
+              <figure className="stage__main">
+                <div className="frame">
+                  <div className="frame__bar">
+                    <span className="frame__dot" />
+                    <span className="frame__dot" />
+                    <span className="frame__dot" />
+                    <span className="frame__label">{customBuild?.title ?? 'Custom system'}</span>
                   </div>
-                )}
-              </div>
+                  <div className="frame__screen">
+                    {customBuild?.image ? (
+                      <SmartImage
+                        src={customBuild.image}
+                        alt={`${customBuild.title} — ${customBuild.industry}`}
+                        width={1200}
+                        height={750}
+                        priority
+                        objectPosition="top center"
+                      />
+                    ) : (
+                      <div className="ui-mock" role="img" aria-label="Interface layout of a custom system we built">
+                        <div className="ui-mock__side" aria-hidden="true">
+                          <span className="ui-mock__dot ui-mock__dot--accent" />
+                          <span className="ui-mock__dot" />
+                          <span className="ui-mock__dot" />
+                          <span className="ui-mock__dot" />
+                          <span className="ui-mock__dot" />
+                        </div>
+                        <div className="ui-mock__body" aria-hidden="true">
+                          <div className="ui-mock__cards">
+                            <span className="ui-mock__card ui-mock__card--accent" />
+                            <span className="ui-mock__card" />
+                            <span className="ui-mock__card" />
+                          </div>
+                          <div className="ui-mock__rows">
+                            <span className="ui-mock__row" />
+                            <span className="ui-mock__row" />
+                            <span className="ui-mock__row ui-mock__row--short" />
+                          </div>
+                          <span className="ui-mock__label">System layout</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </figure>
 
-              <div className="showcase__thumbs" role="tablist" aria-label="Software screenshots">
-                {showcase.map((solution, index) => (
-                  <button
-                    type="button"
-                    role="tab"
-                    key={solution.slug}
-                    className="showcase__thumb"
-                    aria-selected={index === active}
-                    aria-pressed={index === active}
-                    onClick={() => setActive(index)}
-                  >
-                    {solution.media ? (
-                      <img src={solution.media.src} alt="" loading="lazy" decoding="async" />
-                    ) : null}
-                    <span>{solution.navTitle}</span>
-                  </button>
-                ))}
-              </div>
+              {productApp?.media ? (
+                <figure className="stage__float">
+                  <img
+                    src={productApp.media.src}
+                    alt={productApp.media.alt}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption className="stage__tag">
+                    <Icon name="Layers" size={13} />
+                    {productApp.navTitle} · our product
+                  </figcaption>
+                </figure>
+              ) : null}
+            </div>
 
-              <div className="showcase__footer">
-                <p className="showcase__note">Screens from software delivered by our team.</p>
-                <Link className="btn btn--light btn--sm" to={current?.path ?? '/solutions'}>
-                  Solution details
-                </Link>
-              </div>
+            <div className="stage__caption">
+              <span>
+                <Icon name="Monitor" size={14} />
+                Desktop
+              </span>
+              <span>
+                <Icon name="Globe" size={14} />
+                Web
+              </span>
+              <span>
+                <Icon name="Smartphone" size={14} />
+                Mobile
+              </span>
+              <span>Screens from software delivered by our team</span>
             </div>
           </div>
         </div>

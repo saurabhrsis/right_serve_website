@@ -1,6 +1,5 @@
 import SectionHeading from '../common/SectionHeading';
 import Reveal from '../common/Reveal';
-import Icon from '../common/Icon';
 import { differentiators } from '../../data/company';
 
 interface WhyUsProps {
@@ -23,19 +22,15 @@ export default function WhyUs({
     <section className={className} id="why-us">
       <div className="container">
         <SectionHeading eyebrow="Why Right Serve" title={title} lead={lead} />
-        <div className="grid grid--2">
+        <ol className="steps steps--proof">
           {items.map((item, index) => (
-            <Reveal key={item.title} delay={(index % 2) * 60}>
-              <div className="card card--soft" style={{ height: '100%' }}>
-                <span className="card__icon" aria-hidden="true">
-                  <Icon name="CheckCircle2" size={22} />
-                </span>
-                <h3 className="card__title">{item.title}</h3>
-                <p className="card__text">{item.text}</p>
-              </div>
+            <Reveal as="li" className="step" key={item.title} delay={(index % 3) * 50}>
+              <span className="step__number">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

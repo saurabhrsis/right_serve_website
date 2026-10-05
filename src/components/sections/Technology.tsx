@@ -15,7 +15,7 @@ interface TechnologyProps {
  * stack, not a keyword list.
  */
 export default function Technology({
-  className = 'section section--soft',
+  className = 'section section--muted',
   eyebrow = 'Technology',
   title = 'The stack we build and maintain with',
   lead = 'We choose technology based on your requirement, hosting constraints and who will maintain the system — not on what is trending. These are the tools our projects run on today.',
@@ -24,17 +24,15 @@ export default function Technology({
     <section className={className} id="technology">
       <div className="container">
         <SectionHeading eyebrow={eyebrow} title={title} lead={lead} align="center" />
-        <div className="grid grid--3">
+        <div className="tech-grid">
           {technologyGroups.map((group) => (
-            <div className="card card--plain" key={group.title}>
-              <h3 className="card__title">{group.title}</h3>
-              <div className="badge-row">
+            <div className="tech-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
                 {group.items.map((item) => (
-                  <span className="badge" key={item}>
-                    {item}
-                  </span>
+                  <li key={item}>{item}</li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>

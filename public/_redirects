@@ -1,0 +1,4 @@
+# Static hosts that support _redirects (Netlify, Cloudflare Pages with the file convention).
+# Prerendered routes are real files and are served first; this rule only catches
+# URLs that do not exist, handing them to the client shell which renders the 404 page.
+/*  /200.html  200

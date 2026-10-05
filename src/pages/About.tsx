@@ -201,7 +201,7 @@ export default function About() {
             </div>
 
             <div className="card">
-              <span className="card__icon card__icon--teal" aria-hidden="true">
+              <span className="card__icon" aria-hidden="true">
                 <Icon name="Layers" size={22} />
               </span>
               <h3 className="card__title">Ready solutions</h3>
@@ -258,7 +258,7 @@ export default function About() {
       />
 
       <Process
-        variant="navy"
+        variant="dark"
         title="How a project is delivered"
         lead="The same sequence applies to custom development and to product implementation, scaled to the size of the engagement."
       />
@@ -280,7 +280,7 @@ export default function About() {
           <div className="grid grid--4">
             {team.map((member) => (
               <div className="value-tile" key={member.name}>
-                <span className="badge badge--navy">{member.role}</span>
+                <span className="badge">{member.role}</span>
                 <h3 className="mt-4" style={{ fontSize: '1.02rem' }}>
                   {member.name}
                 </h3>

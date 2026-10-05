@@ -17,15 +17,17 @@ interface NavItem {
   }[];
 }
 
+/**
+ * Desktop navigation, kept deliberately short: the two menu items that need it
+ * carry dropdowns, everything else is one click away.
+ */
 const navigation: NavItem[] = [
-  { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services', children: servicesNav },
   { label: 'Solutions', to: '/solutions', children: solutionsNav },
-  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Work', to: '/portfolio' },
   { label: 'Case Studies', to: '/case-studies' },
   { label: 'Blog', to: '/blog' },
-  { label: 'Contact', to: '/contact' },
 ];
 
 const MOBILE_NAV_ID = 'site-drawer';
@@ -271,7 +273,7 @@ export default function Header() {
               <Icon name="ArrowRight" size={16} />
             </NavLink>
 
-            {navigation.slice(1).map((item) =>
+            {navigation.map((item) =>
               item.children ? (
                 <details className="nav-drawer__group" key={item.to}>
                   <summary>

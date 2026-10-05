@@ -7,13 +7,6 @@ import type { Article } from '../../data/blog';
 
 /* ------------------------------------------------------------------ Solution */
 
-const accentClass: Record<Solution['accent'], string> = {
-  azure: 'badge--azure',
-  teal: 'badge--teal',
-  amber: 'badge--amber',
-  navy: 'badge--navy',
-};
-
 /**
  * Product card used on the homepage and solutions index. When a genuine
  * product screenshot exists it is shown; otherwise a branded panel carrying the
@@ -46,7 +39,7 @@ export function SolutionCard({ solution, priority }: { solution: Solution; prior
           <h3>
             <Link to={solution.path}>{solution.name}</Link>
           </h3>
-          <span className={`badge ${accentClass[solution.accent]}`}>{solution.category}</span>
+          <span className="badge badge--accent">{solution.category}</span>
         </div>
         <p>{solution.summary}</p>
         <div className="badge-row">
@@ -96,7 +89,7 @@ export function ProjectCard({ project }: { project: Project }) {
       ) : null}
 
       <div className="project-card__body">
-        <span className="badge badge--azure">{project.type}</span>
+        <span className="badge badge--accent">{project.type}</span>
         <h3>{project.title}</h3>
         <p>{project.summary}</p>
         <ul className="project-card__meta">
@@ -146,7 +139,7 @@ export function ArticleCard({ article }: { article: Article }) {
       </Link>
       <div className="post-card__body">
         <div className="post-card__meta">
-          <span className="badge badge--navy">{article.category}</span>
+          <span className="badge">{article.category}</span>
           <span>
             <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time> · {article.readingMinutes} min
             read

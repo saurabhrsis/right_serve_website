@@ -11,46 +11,43 @@ const facts = [
 ];
 
 /**
- * Credibility band directly under the homepage hero: factual capability chips
- * plus the clients whose projects are published in our portfolio.
- *
- * No counters, awards or numbers appear here — only statements the company can
- * verify from its own records.
+ * Credibility band directly under the homepage hero: the clients whose projects
+ * are published in our portfolio, plus capability statements the company can
+ * verify from its own records. No counters, awards or invented figures.
  */
 export default function TrustStrip() {
   return (
-    <section className="trust-strip" aria-label="Company capability and clients">
+    <section className="proof-band" aria-label="Clients and capabilities">
       <div className="container container--wide">
-        <div className="trust-strip__inner">
-          <ul className="trust-strip__items">
-            {facts.map((fact) => (
-              <li key={fact.text}>
-                <Icon name={fact.icon} size={17} />
-                {fact.text}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="trust-strip__clients">
-          <p className="trust-strip__label mb-0">Working with</p>
-          <ul className="logo-rail">
-            {clientLogos.map((client) => (
-              <li key={client.name}>
-                <img
-                  src={client.logo}
-                  alt={`${client.name} — ${client.industry}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </li>
-            ))}
-          </ul>
-          <Link className="link-arrow trust-strip__link" to="/portfolio">
+        <div className="proof-band__label">
+          <span>Working with</span>
+          <Link className="link-arrow" to="/portfolio">
             See the projects
             <Icon name="ArrowRight" size={15} />
           </Link>
         </div>
+
+        <ul className="logo-rail">
+          {clientLogos.map((client) => (
+            <li key={client.name}>
+              <img
+                src={client.logo}
+                alt={`${client.name} — ${client.industry}`}
+                loading="lazy"
+                decoding="async"
+              />
+            </li>
+          ))}
+        </ul>
+
+        <ul className="proof-band__facts">
+          {facts.map((fact) => (
+            <li key={fact.text}>
+              <Icon name={fact.icon} size={16} />
+              {fact.text}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

@@ -2,9 +2,12 @@ import Seo from '../seo/Seo';
 import HomeHero from '../components/home/HomeHero';
 import {
   CustomDevelopment,
-  ProofPreview,
-  SolutionsShowcase,
-  WhatWeDo,
+  Engineering,
+  IndustriesIndex,
+  ProductsSpotlight,
+  SelectedWork,
+  WhatWeBuild,
+  WhyRightServe,
 } from '../components/home/HomeSections';
 import TrustStrip from '../components/sections/TrustStrip';
 import Process from '../components/sections/Process';
@@ -22,13 +25,12 @@ import {
 /**
  * Homepage.
  *
- * Deliberately short and sales-focused: hero → credibility → what we do →
- * products → custom development → delivered work → process → FAQ → CTA.
- * Deep material (industries, technology, why us, articles) lives on the pages
- * that can present it properly.
+ * A sales page, not a sitemap: the hero states what we do, the next bands prove
+ * it with real screens and client work, and every block hands off to the page
+ * that covers the subject in depth. Detail lives on those pages.
  */
 export default function Home() {
-  const homeFaqs = generalFaqs.slice(0, 5);
+  const homeFaqs = generalFaqs.slice(0, 3);
 
   return (
     <>
@@ -44,30 +46,32 @@ export default function Home() {
 
       <HomeHero />
       <TrustStrip />
-      <WhatWeDo />
-      <SolutionsShowcase />
+      <WhatWeBuild />
+      <ProductsSpotlight />
       <CustomDevelopment />
-      <ProofPreview />
+      <SelectedWork />
+      <IndustriesIndex />
+      <Engineering />
+      <WhyRightServe />
 
       <Process
         limit={4}
-        variant="navy"
         id="process-summary"
         eyebrow="How we work"
-        title="A process that keeps scope and timelines visible"
-        lead="Four stages, each ending in something you review and approve. The full seven-stage process is documented on the services page."
+        title="From first discussion to support"
+        lead="Four stages, each ending in something you review and approve. Phase two starts when you decide it does."
         cta={{ label: 'See the full process', to: '/services' }}
       />
 
       <FaqSection
         items={homeFaqs}
         title="Questions we are asked before a project starts"
-        lead="If your question is not answered here, call us or send it through the enquiry form — you will get a direct answer."
+        lead="If yours is not here, call us or send it through the enquiry form — you will get a direct answer."
       />
 
       <CtaBand
-        title="Have a software requirement or a business problem to solve?"
-        text="Tell us how your business works today and where it slows down. We will suggest the most practical route — a ready solution, a custom build, or a phased combination of both."
+        title="Have a requirement or a bottleneck to solve?"
+        text="Tell us how the business works today and where it slows down. We will suggest the most practical route — a ready product, a custom build, or a phased combination."
         primaryLabel="Request a Quote"
         primaryPath="/request-quote"
         secondaryLabel="Talk to Our Team"

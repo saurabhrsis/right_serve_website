@@ -58,7 +58,7 @@ export default function CaseStudies() {
                   ) : null}
                   <div style={{ padding: 'clamp(1.25rem, 1rem + 0.8vw, 1.85rem)', display: 'grid', gap: 'var(--space-3)' }}>
                     <div className="badge-row">
-                      <span className="badge badge--azure">{study.industry}</span>
+                      <span className="badge badge--accent">{study.industry}</span>
                       <span className="badge">{study.projectType}</span>
                     </div>
                     <h3 className="card__title">

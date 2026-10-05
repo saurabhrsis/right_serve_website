@@ -28,17 +28,15 @@ export default function Industries({
     <section className={className} id="industries">
       <div className="container">
         <SectionHeading eyebrow={eyebrow} title={title} lead={lead} />
-        <div className="grid grid--3">
+        <div className="industry-index">
           {list.map((industry, index) => (
-            <Reveal key={industry.name} delay={(index % 3) * 60}>
-              <div className="industry-tile">
-                <span className="industry-tile__icon" aria-hidden="true">
-                  <Icon name={industry.icon} size={20} />
+            <Reveal key={industry.name} delay={(index % 4) * 50} as="div">
+              <div className="industry-index__item">
+                <span className="industry-index__name">
+                  <Icon name={industry.icon} size={17} />
+                  {industry.name}
                 </span>
-                <div>
-                  <h3>{industry.name}</h3>
-                  <p>{industry.description}</p>
-                </div>
+                <span className="industry-index__note">{industry.description}</span>
               </div>
             </Reveal>
           ))}

@@ -56,7 +56,7 @@ export default function Blog() {
                 </a>
                 <div style={{ padding: 'clamp(1.5rem, 1.2rem + 1vw, 2.5rem)', display: 'grid', gap: 'var(--space-3)' }}>
                   <div className="post-card__meta">
-                    <span className="badge badge--azure">{featured.category}</span>
+                    <span className="badge badge--accent">{featured.category}</span>
                     <span>
                       <time dateTime={featured.publishedAt}>
                         {new Date(featured.publishedAt).toLocaleDateString('en-IN', {

@@ -199,16 +199,19 @@ Every real route exists as a file, so deep links work on a host that performs **
 resolution (`/about` → `/about/index.html`) — this is the default on Netlify, Vercel, Cloudflare Pages,
 GitHub Pages, Amplify and most CDNs. If your host does not, add one of these:
 
-**Netlify** — `public/_redirects`
+**Netlify** — `public/_redirects` (already included)
 
 ```
-/*  /index.html  200
+/*  /200.html  200
 ```
+
+Static files are matched before this rule, so prerendered routes keep being served from their own
+folder and only unknown URLs fall through to the client shell.
 
 **Vercel** — `vercel.json`
 
 ```json
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+{ "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/200.html" }] }
 ```
 
 **nginx**

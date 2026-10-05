@@ -10,7 +10,7 @@ export interface HeroMetaItem {
 }
 
 interface PageHeroProps {
-  /** Trail shown on the dark band; the parent page supplies the items. */
+  /** Trail shown above the headline; the parent page supplies the items. */
   breadcrumbs?: Crumb[];
   eyebrow?: string;
   title: ReactNode;
@@ -30,10 +30,9 @@ interface PageHeroProps {
 /**
  * Standard page header used by every non-home page.
  *
- * Two compositions keep the band from looking empty:
- *  - with media  → copy on the left, framed screenshot on the right;
- *  - without media → editorial split, headline on the left, copy and actions
- *    on the right.
+ * Two compositions keep the band from reading as an empty coloured strip:
+ *  - with media  → headline on the left, framed screenshot on the right;
+ *  - without media → editorial split: headline left, copy and actions right.
  * Every page renders exactly one H1 here.
  */
 export default function PageHero({
@@ -52,15 +51,15 @@ export default function PageHero({
 }: PageHeroProps) {
   const actions =
     primaryCta || secondaryCta ? (
-      <div className="page-hero__actions">
+      <div className="hero__actions">
         {primaryCta ? (
-          <Link className="btn btn--primary btn--lg" to={primaryCta.to}>
+          <Link className="btn btn--primary" to={primaryCta.to}>
             {primaryCta.label}
-            <Icon name="ArrowRight" size={18} className="btn__icon btn__icon--arrow" />
+            <Icon name="ArrowRight" size={17} className="btn__icon btn__icon--arrow" />
           </Link>
         ) : null}
         {secondaryCta ? (
-          <Link className="btn btn--ghost-light btn--lg" to={secondaryCta.to}>
+          <Link className="btn btn--ghost" to={secondaryCta.to}>
             {secondaryCta.label}
           </Link>
         ) : null}
@@ -70,8 +69,8 @@ export default function PageHero({
   const badgeRow = badges?.length ? (
     <div className="badge-row">
       {badges.map((badge) => (
-        <span className="badge badge--dark" key={badge}>
-          <Icon name="Check" size={14} />
+        <span className="badge" key={badge}>
+          <Icon name="Check" size={13} />
           {badge}
         </span>
       ))}
@@ -79,9 +78,9 @@ export default function PageHero({
   ) : null;
 
   const metaRow = meta?.length ? (
-    <div className="page-hero__meta">
+    <div className="hero__facts">
       {meta.map((item) => (
-        <span className="page-hero__meta-item" key={item.text}>
+        <span key={item.text}>
           <Icon name={item.icon} size={15} />
           {item.text}
         </span>
@@ -89,12 +88,13 @@ export default function PageHero({
     </div>
   ) : null;
 
-  const eyebrowChip = eyebrow ? <p className="page-hero__eyebrow">{eyebrow}</p> : null;
+  const eyebrowLine = eyebrow ? <p className="hero__eyebrow">{eyebrow}</p> : null;
 
   const className = [
-    'page-hero',
-    variant === 'light' ? 'page-hero--light' : '',
-    compact ? 'page-hero--compact' : '',
+    'hero',
+    'hero--page',
+    variant === 'light' ? 'theme-light' : '',
+    compact ? 'hero--compact' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -104,42 +104,49 @@ export default function PageHero({
       <div className="container container--wide">
         {breadcrumbs?.length ? <Breadcrumbs items={breadcrumbs} variant="hero" /> : null}
 
-        <div className={`page-hero__inner ${media ? 'page-hero__inner--split' : 'page-hero__inner--text'}`}>
+        <div className={`hero__inner ${media ? 'hero__inner--split' : 'hero__inner--text'}`}>
           {media ? (
             <>
-              <div className="page-hero__content">
-                {eyebrowChip}
+              <div className="hero__copy">
+                {eyebrowLine}
                 <h1>{title}</h1>
-                <p className="lead">{lead}</p>
+                <p className="hero__lead">{lead}</p>
                 {badgeRow}
                 {actions}
                 {metaRow}
                 {children}
               </div>
 
-              <figure className="page-hero__visual">
-                <div className="hero-frame">
-                  <div className="hero-frame__bar">
-                    <span className="hero-frame__dot" />
-                    <span className="hero-frame__dot" />
-                    <span className="hero-frame__dot" />
-                    <span className="hero-frame__label">{media.label ?? 'Software preview'}</span>
+              <figure className="hero__visual">
+                <div className="frame">
+                  <div className="frame__bar">
+                    <span className="frame__dot" />
+                    <span className="frame__dot" />
+                    <span className="frame__dot" />
+                    <span className="frame__label">{media.label ?? 'Software preview'}</span>
                   </div>
-                  <div className="hero-frame__body">
-                    <SmartImage src={media.src} alt={media.alt} width={1200} height={750} objectPosition="top center" />
+                  <div className="frame__screen">
+                    <SmartImage
+                      src={media.src}
+                      alt={media.alt}
+                      width={1200}
+                      height={750}
+                      priority
+                      objectPosition="top center"
+                    />
                   </div>
-                  {media.caption ? <p className="hero-frame__caption">{media.caption}</p> : null}
+                  {media.caption ? <p className="frame__caption">{media.caption}</p> : null}
                 </div>
               </figure>
             </>
           ) : (
             <>
-              <div className="page-hero__title">
-                {eyebrowChip}
+              <div className="hero__title">
+                {eyebrowLine}
                 <h1>{title}</h1>
               </div>
-              <div className="page-hero__copy">
-                <p className="lead">{lead}</p>
+              <div className="hero__copy">
+                <p className="hero__lead">{lead}</p>
                 {badgeRow}
                 {actions}
                 {metaRow}
